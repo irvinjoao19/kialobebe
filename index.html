@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kialo bebé · Ropa y accesorios para tu bebé</title>
+<meta name="description" content="Kialo bebé — ropa, zapatitos, accesorios y temáticas para consentir a tu bebé. Pide fácil por WhatsApp. Envíos a todo el Perú." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FBF6EC; --cream-2:#F3EADA; --card:#FFFFFF;
+    --ink:#3B4756; --ink-soft:#74808F;
+    --coral:#F0655A; --yellow:#F4C040; --green:#6CB94E;
+    --teal:#3FB6A8; --blue:#3E8FD0; --purple:#9B6FC9;
+    --wa:#25D366; --radius:24px; --shadow:0 14px 34px rgba(120,100,70,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Nunito",sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.ff{font-family:"Fredoka",sans-serif;font-weight:600;line-height:1.12}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wa-ico{width:18px;height:18px;fill:currentColor;flex:none}
+  .promo{background:var(--coral);color:#fff;text-align:center;font-weight:700;font-size:.85rem;padding:8px 14px}
+  .top{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(150,130,100,.12)}
+  .top-in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.18rem}
+  .brand img{width:40px;height:40px;border-radius:11px}
+  .nav{display:flex;align-items:center;gap:22px}
+  .nav a{font-weight:700;font-size:.95rem;color:var(--ink-soft)}
+  .nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:"Fredoka",sans-serif;font-weight:600;border:none;border-radius:999px;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;text-align:center}
+  .btn:active{transform:scale(.97)}
+  .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3)}
+  @media(max-width:720px){.nav a:not(.btn){display:none}}
+  .hero{max-width:1120px;margin:0 auto;padding:40px 18px 18px;display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+  .hero-text{flex:1 1 320px}
+  .hero-text h1{font-size:2.7rem;font-weight:700;letter-spacing:-.5px}
+  .hero-text h1 .b{color:var(--blue)} .hero-text h1 .c{color:var(--coral)}
+  .hero-text p{font-size:1.15rem;color:var(--ink-soft);font-weight:600;margin:14px 0 24px;max-width:42ch}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-lg{font-size:1.02rem;padding:14px 28px}
+  .btn-soft{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+  .hero-img{flex:1 1 320px;position:relative;display:flex;justify-content:center}
+  .hero-img::before{content:"";position:absolute;width:86%;height:86%;top:7%;left:7%;background:radial-gradient(circle at 50% 40%, #FAD9A4, #F4C04055 60%, transparent 72%);border-radius:50%;z-index:0}
+  .hero-img img{position:relative;z-index:1;width:100%;max-width:420px;border-radius:30px;box-shadow:var(--shadow)}
+  .benefits{max-width:1120px;margin:14px auto 0;padding:0 18px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .benefit{flex:1 1 200px;max-width:260px;background:#fff;border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(120,100,70,.07)}
+  .benefit .e{font-size:1.5rem;flex:none}
+  .benefit b{font-family:"Fredoka",sans-serif;font-weight:600;font-size:.96rem;display:block}
+  .benefit span{font-size:.8rem;color:var(--ink-soft);font-weight:600}
+  .head{text-align:center;margin:54px auto 6px}
+  .head h2{font-size:1.9rem}
+  .head .line{width:74px;height:5px;border-radius:999px;margin:10px auto 0;background:linear-gradient(90deg,var(--coral),var(--yellow),var(--green),var(--blue),var(--purple))}
+  .head p{color:var(--ink-soft);font-weight:600;margin-top:10px}
+  .cats{max-width:1120px;margin:22px auto 0;padding:0 18px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cat{flex:1 1 160px;max-width:230px;border:none;cursor:pointer;border-radius:20px;padding:24px 18px;color:#fff;text-align:left;font-family:"Fredoka",sans-serif;box-shadow:var(--shadow);transition:transform .15s ease}
+  .cat:hover{transform:translateY(-4px)}
+  .cat .e{font-size:1.9rem;display:block;margin-bottom:8px}
+  .cat b{font-size:1.12rem;font-weight:600;display:block}
+  .cat span{font-size:.82rem;font-weight:500;opacity:.92;font-family:"Nunito",sans-serif}
+  .cat:nth-child(4n+1){background:linear-gradient(135deg,#F0655A,#f3897f)}
+  .cat:nth-child(4n+2){background:linear-gradient(135deg,#3E8FD0,#5ba3dd)}
+  .cat:nth-child(4n+3){background:linear-gradient(135deg,#6CB94E,#86c86b)}
+  .cat:nth-child(4n+4){background:linear-gradient(135deg,#9B6FC9,#b08ed6)}
+  .catalog{max-width:1120px;margin:0 auto;padding:10px 18px 0}
+  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 24px}
+  .chip{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.92rem;padding:9px 18px;border-radius:999px;border:none;background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 4px 12px rgba(120,100,70,.07);transition:all .15s ease}
+  .chip.on{background:var(--ink);color:#fff}
+  .grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+  .product{flex:1 1 250px;max-width:300px;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease}
+  .product:hover{transform:translateY(-5px)}
+  .ph{position:relative;aspect-ratio:4/5;background:var(--cream-2);overflow:hidden}
+  .ph img{width:100%;height:100%;object-fit:cover}
+  .save{position:absolute;top:12px;left:12px;background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.74rem;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  .p-body{padding:17px 17px 19px;display:flex;flex-direction:column;flex:1}
+  .p-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.18rem}
+  .p-desc{font-size:.86rem;color:var(--ink-soft);font-weight:600;margin:5px 0 12px;line-height:1.45}
+  .p-meta{font-size:.78rem;color:var(--ink-soft);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .dot{width:13px;height:13px;border-radius:50%;display:inline-block;border:1.5px solid #0001}
+  .p-price{display:flex;align-items:baseline;gap:9px;margin-top:auto;margin-bottom:14px}
+  .p-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.4rem;color:var(--coral)}
+  .p-old{font-size:.94rem;color:var(--ink-soft);text-decoration:line-through}
+  .p-buy{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.96rem;padding:12px;border-radius:15px;box-shadow:0 8px 18px rgba(37,211,102,.26);transition:transform .15s ease, box-shadow .15s ease}
+  .p-buy:hover{box-shadow:0 10px 22px rgba(37,211,102,.36)}
+  .p-buy:active{transform:scale(.97)}
+  .empty,.loading{width:100%;text-align:center;padding:46px 20px;color:var(--ink-soft);font-weight:700}
+  .more-wrap{text-align:center;margin:30px 0 0}
+  .btn-more{background:#fff;color:var(--ink);font-size:1rem;padding:13px 30px;box-shadow:var(--shadow)}
+  .live{max-width:1120px;margin:60px auto 0;padding:0 18px}
+  .live-in{background:linear-gradient(135deg,#2c2540,#473a63);border-radius:30px;padding:40px 32px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+  .live-in .pulse{display:inline-flex;align-items:center;gap:8px;background:#ffffff22;padding:6px 14px;border-radius:999px;font-weight:800;font-size:.82rem;letter-spacing:.04em}
+  .live-in .pulse i{width:9px;height:9px;border-radius:50%;background:#ff4b5c;display:inline-block;animation:pp 1.4s infinite}
+  @keyframes pp{0%,100%{opacity:1}50%{opacity:.3}}
+  .live-in h2{font-size:1.8rem;margin:14px 0 8px}
+  .live-in p{color:#ffffffcc;font-weight:600;max-width:46ch;margin:0 auto 20px}
+  .btn-tt{background:#fff;color:#1a1626;font-size:1rem;padding:13px 28px}
+  footer{margin-top:56px;background:var(--cream-2);padding:42px 18px 28px;text-align:center}
+  .f-logo{width:64px;height:64px;border-radius:16px;margin:0 auto 12px}
+  .f-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.35rem}
+  .f-tag{color:var(--ink-soft);font-weight:600;margin:4px 0 18px}
+  .f-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .f-links a{display:inline-flex;align-items:center;gap:8px;background:#fff;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(120,100,70,.08)}
+  .copy{margin-top:22px;font-size:.8rem;color:var(--ink-soft)}
+  @media (max-width:560px){
+    .hero-text h1{font-size:2.1rem}
+    .product{flex-basis:44%;min-width:150px}
+    .p-body{padding:12px}.p-name{font-size:1rem}.p-now{font-size:1.18rem}.p-buy{font-size:.84rem;padding:10px}.p-desc{display:none}
+  }
+  /* tarjeta clickeable */
+  .ph,.p-name{cursor:pointer}
+  .ph::after{content:"Ver detalle";position:absolute;bottom:10px;right:10px;background:#000000a8;color:#fff;font-family:"Fredoka",sans-serif;font-size:.72rem;padding:5px 11px;border-radius:999px;opacity:0;transition:opacity .15s ease}
+  .product:hover .ph::after{opacity:1}
+
+  /* modal */
+  .modal{position:fixed;inset:0;z-index:90;display:none;align-items:flex-start;justify-content:center;padding:24px 14px;overflow-y:auto;background:rgba(40,33,30,.55);backdrop-filter:blur(3px)}
+  .modal.open{display:flex}
+  .m-box{background:#fff;border-radius:26px;max-width:880px;width:100%;margin:auto;box-shadow:0 30px 70px rgba(0,0,0,.3);overflow:hidden;position:relative;animation:pop .2s ease}
+  @keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:scale(1);opacity:1}}
+  .m-close{position:absolute;top:14px;right:14px;z-index:5;width:38px;height:38px;border:none;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.18);font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink)}
+  .m-grid{display:flex;flex-wrap:wrap}
+  .m-gallery{flex:1 1 360px;background:var(--cream-2);padding:18px}
+  .m-main{position:relative;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:#fff}
+  .m-main img{width:100%;height:100%;object-fit:cover}
+  .m-arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:none;border-radius:50%;background:#ffffffdd;box-shadow:0 4px 12px rgba(0,0,0,.16);cursor:pointer;font-size:1.2rem;color:var(--ink);display:flex;align-items:center;justify-content:center}
+  .m-arrow.prev{left:10px} .m-arrow.next{right:10px}
+  .m-thumbs{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+  .m-thumb{width:62px;height:62px;border-radius:12px;overflow:hidden;cursor:pointer;border:3px solid transparent;flex:none;background:#fff}
+  .m-thumb.on{border-color:var(--coral)}
+  .m-thumb img{width:100%;height:100%;object-fit:cover}
+  .m-info{flex:1 1 340px;padding:30px 28px 26px;display:flex;flex-direction:column}
+  .m-cat{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.78rem;color:#fff;background:var(--coral);align-self:flex-start;padding:4px 13px;border-radius:999px;margin-bottom:12px}
+  .m-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.7rem;line-height:1.1}
+  .m-price{display:flex;align-items:baseline;gap:10px;margin:14px 0}
+  .m-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.7rem;color:var(--coral)}
+  .m-old{font-size:1.05rem;color:var(--ink-soft);text-decoration:line-through}
+  .m-save{background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.78rem;padding:4px 12px;border-radius:999px}
+  .m-detalle{color:var(--ink);font-weight:600;line-height:1.6;margin-bottom:16px}
+  .m-specs{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+  .m-spec{display:flex;gap:9px;align-items:flex-start;font-size:.9rem;color:var(--ink-soft);font-weight:700}
+  .m-spec .e{flex:none}
+  .m-colors{margin-bottom:20px}
+  .m-colors .lbl{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.86rem;color:var(--ink-soft);margin-bottom:8px}
+  .m-swatches{display:flex;gap:12px;flex-wrap:wrap}
+  .m-sw{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.72rem;color:var(--ink-soft);font-weight:700}
+  .m-sw .dot{width:30px;height:30px;border:2px solid #0001}
+  .m-buy{margin-top:auto}
+  @media (max-width:560px){
+    .m-name{font-size:1.4rem}.m-info{padding:22px 20px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none;animation:none}}
+</style>
+</head>
+<body>
+  <div class="promo">✨ Envíos a todo el Perú · Atención al toque por WhatsApp 💬</div>
+
+  <div class="top">
+    <div class="top-in">
+      <a class="brand" href="#"><img src="assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
+      <nav class="nav">
+        <a href="#categorias">Categorías</a>
+        <a href="#productos">Productos</a>
+        <a href="#tiktok">En vivo</a>
+        <a class="btn btn-wa" data-wa="¡Hola Kialo bebé! 💛 Quiero hacer una consulta"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Ternura para <span class="c">tu</span> <span class="b">bebé</span> 💛</h1>
+      <p>Ropa, zapatitos, accesorios y temáticas tiernos y de buena calidad. Pídelos fácil por WhatsApp y te atendemos al toque.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lg btn-soft" href="#productos">Ver productos</a>
+        <a class="btn btn-lg btn-wa" data-wa="¡Hola Kialo bebé! 💛" style="color:#fff"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Escríbenos</a>
+      </div>
+    </div>
+    <div class="hero-img"><img src="assets/img/brand/hero.jpg" alt="Bebé con boina de Kialo bebé" /></div>
+  </header>
+
+  <section class="benefits">
+    <div class="benefit"><span class="e">📦</span><div><b>Envíos a todo el Perú</b><span>Coordinamos por WhatsApp</span></div></div>
+    <div class="benefit"><span class="e">💬</span><div><b>Atención al toque</b><span>Te respondemos rapidito</span></div></div>
+    <div class="benefit"><span class="e">📸</span><div><b>Fotos reales</b><span>Lo que ves es lo que llega</span></div></div>
+    <div class="benefit"><span class="e">🔴</span><div><b>En vivo en TikTok</b><span>Te mostramos todo en directo</span></div></div>
+  </section>
+
+  <div class="head" id="categorias"><h2>Explora por categoría</h2><div class="line"></div></div>
+  <section class="cats" id="cats"></section>
+
+  <div class="head" id="productos">
+    <h2>Nuestros productos</h2><div class="line"></div>
+    <p>Toca <strong>Pedir por WhatsApp</strong> y coordinamos tu pedido 💛</p>
+  </div>
+
+  <main class="catalog">
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"><div class="loading">Cargando productos… 💛</div></div>
+    <div class="more-wrap"><button class="btn btn-more" id="more" style="display:none">Cargar más productos</button></div>
+  </main>
+
+  <section class="live" id="tiktok">
+    <div class="live-in">
+      <span class="pulse"><i></i> EN VIVO</span>
+      <h2>Míranos en vivo en TikTok 🎵</h2>
+      <p>Hacemos lives mostrando los productos en directo y subimos las novedades primero. ¡Síguenos para no perderte las ofertas!</p>
+      <a class="btn btn-lg btn-tt" data-tiktok target="_blank" rel="noopener">Ver nuestro TikTok →</a>
+    </div>
+  </section>
+
+  <footer>
+    <img class="f-logo" src="assets/img/brand/logo.jpg" alt="Kialo bebé" />
+    <div class="f-name">Kialo bebé</div>
+    <p class="f-tag">Ternura para los más pequeñitos 🌈</p>
+    <div class="f-links">
+      <a data-wa="¡Hola Kialo bebé! 💛"><svg class="wa-ico" viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg><span id="wa-num">WhatsApp</span></a>
+      <a data-tiktok target="_blank" rel="noopener">🎵 TikTok</a>
+      <a data-instagram target="_blank" rel="noopener">📷 Instagram</a>
+    </div>
+    <p class="copy">© 2026 Kialo bebé · Hecho con 💛 en Perú</p>
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="m-box" role="dialog" aria-modal="true">
+      <button class="m-close" id="mClose" aria-label="Cerrar">✕</button>
+      <div class="m-grid">
+        <div class="m-gallery">
+          <div class="m-main">
+            <img id="mMain" src="" alt="" />
+            <button class="m-arrow prev" id="mPrev" aria-label="Anterior">‹</button>
+            <button class="m-arrow next" id="mNext" aria-label="Siguiente">›</button>
+          </div>
+          <div class="m-thumbs" id="mThumbs"></div>
+        </div>
+        <div class="m-info" id="mInfo"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WA_SVG = '<svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>';
+    const PAGE = 24;
+    const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    // Colores por nombre -> hex (para mostrar el puntito de color)
+    const COLOR_MAP = {
+      blanco:"#ffffff", negro:"#2b2b2b", gris:"#9aa0a6", plomo:"#9aa0a6",
+      rojo:"#F0655A", coral:"#F0655A", rosa:"#f7a8c4", rosado:"#f7a8c4", fucsia:"#e85a9b",
+      amarillo:"#F4C040", mostaza:"#e0a93a", naranja:"#f29b50", naranjado:"#f29b50",
+      verde:"#6CB94E", "verde agua":"#3FB6A8", turquesa:"#3FB6A8", celeste:"#7cc1ec",
+      azul:"#3E8FD0", "azul marino":"#2c3e7a", morado:"#9B6FC9", lila:"#b79be0", violeta:"#9B6FC9",
+      beige:"#d8c4a3", crema:"#efe6d3", marron:"#9c6b4a", "marrón":"#9c6b4a", cafe:"#9c6b4a", "café":"#9c6b4a",
+      dorado:"#d4af37", plateado:"#c0c4c9", vino:"#7d2240"
+    };
+    const hexDe = nombre => COLOR_MAP[String(nombre).trim().toLowerCase()] || "#d9d2c5";
+    const fotosDe = p => (Array.isArray(p.fotos) && p.fotos.length) ? p.fotos : (p.foto ? [p.foto] : []);
+    const IMG = f => "assets/img/productos/" + f;
+
+    let DATA = null, current = 'todos', shown = 0;
+    const grid = document.getElementById('grid');
+    const moreBtn = document.getElementById('more');
+
+    fetch('productos.json')
+      .then(r => r.json())
+      .then(data => { DATA = data; init(); })
+      .catch(() => { grid.innerHTML = '<div class="empty">No pudimos cargar los productos. Si abriste el archivo directamente, súbelo a tu hosting (GitHub Pages) y ábrelo desde ahí. 💛</div>'; });
+
+    function init(){
+      const num = DATA.tienda.whatsapp;
+      document.querySelectorAll('[data-wa]').forEach(a => a.href = wa(num, a.dataset.wa));
+      document.querySelectorAll('[data-tiktok]').forEach(a => a.href = DATA.tienda.tiktok || '#');
+      document.querySelectorAll('[data-instagram]').forEach(a => a.href = DATA.tienda.instagram || '#');
+      const waNum = document.getElementById('wa-num'); if (waNum) waNum.textContent = '+' + num;
+
+      // categorias (tiles)
+      const cats = document.getElementById('cats');
+      cats.innerHTML = DATA.categorias.map(c =>
+        `<button class="cat" data-c="${c.id}"><span class="e">${c.emoji||'🧸'}</span><b>${esc(c.nombre)}</b><span>${esc(c.desc||'')}</span></button>`
+      ).join('');
+      cats.querySelectorAll('.cat').forEach(b => b.addEventListener('click', () => {
+        setFilter(b.dataset.c);
+        document.getElementById('productos').scrollIntoView({behavior:'smooth'});
+      }));
+
+      // filtros (chips)
+      const filters = document.getElementById('filters');
+      filters.innerHTML = `<button class="chip on" data-c="todos">Todos</button>` +
+        DATA.categorias.map(c => `<button class="chip" data-c="${c.id}">${esc(c.nombre)}</button>`).join('');
+      filters.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => setFilter(ch.dataset.c)));
+
+      moreBtn.addEventListener('click', renderMore);
+      setFilter('todos');
+    }
+
+    function list(){ return current === 'todos' ? DATA.productos : DATA.productos.filter(p => p.categoria === current); }
+
+    function card(p){
+      const save = (p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : '';
+      const old = (p.antes && p.antes > p.precio) ? `<span class="p-old">S/ ${p.antes}</span>` : '';
+      const dots = (p.colores && p.colores.length)
+        ? `<div class="p-meta">${p.colores.length} colores: ${p.colores.map(c=>`<span class="dot" style="background:${hexDe(c)}" title="${esc(c)}"></span>`).join('')}</div>` : '';
+      const msg = `¡Hola Kialo bebé! 💛 Me interesa: ${p.nombre} (S/${p.precio}). ¿Está disponible?`;
+      const portada = fotosDe(p)[0] || '';
+      const el = document.createElement('article');
+      el.className = 'product';
+      el.innerHTML = `
+        <div class="ph js-open">${save}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></div>
+        <div class="p-body">
+          <div class="p-name js-open">${esc(p.nombre)}</div>
+          <div class="p-desc">${esc(p.desc||'')}</div>
+          ${dots}
+          <div class="p-price"><span class="p-now">S/ ${p.precio}</span>${old}</div>
+          <a class="p-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, msg)}">${WA_SVG}Pedir por WhatsApp</a>
+        </div>`;
+      el.querySelectorAll('.js-open').forEach(n => n.addEventListener('click', () => openModal(p)));
+      return el;
+    }
+
+    function renderMore(){
+      const items = list();
+      const slice = items.slice(shown, shown + PAGE);
+      slice.forEach(p => grid.appendChild(card(p)));
+      shown += slice.length;
+      moreBtn.style.display = (shown < items.length) ? '' : 'none';
+    }
+
+    function setFilter(c){
+      current = c; shown = 0; grid.innerHTML = '';
+      document.querySelectorAll('.chip').forEach(ch => ch.classList.toggle('on', ch.dataset.c === c));
+      const items = list();
+      if (!items.length){ grid.innerHTML = '<div class="empty">¡Pronto agregaremos más por aquí! 💛 Escríbenos por WhatsApp.</div>'; moreBtn.style.display='none'; return; }
+      renderMore();
+    }
+    // ---- Modal de detalle con galería ----
+    const modal = document.getElementById('modal');
+    const mMain = document.getElementById('mMain');
+    const mThumbs = document.getElementById('mThumbs');
+    const mInfo = document.getElementById('mInfo');
+    let galeria = [], idx = 0;
+
+    function showFoto(i){
+      if(!galeria.length) return;
+      idx = (i + galeria.length) % galeria.length;
+      mMain.src = IMG(galeria[idx]);
+      mThumbs.querySelectorAll('.m-thumb').forEach((t,n)=>t.classList.toggle('on', n===idx));
+    }
+
+    function openModal(p){
+      galeria = fotosDe(p);
+      idx = 0;
+      mMain.src = galeria.length ? IMG(galeria[0]) : '';
+      mMain.alt = p.nombre;
+
+      // miniaturas (solo si hay más de una)
+      mThumbs.innerHTML = (galeria.length > 1)
+        ? galeria.map((f,n)=>`<button class="m-thumb${n===0?' on':''}" data-i="${n}"><img src="${IMG(esc(f))}" alt="${esc(p.nombre)} ${n+1}" /></button>`).join('')
+        : '';
+      mThumbs.querySelectorAll('.m-thumb').forEach(t=>t.addEventListener('click',()=>showFoto(+t.dataset.i)));
+      const hayVarias = galeria.length > 1;
+      document.getElementById('mPrev').style.display = hayVarias ? '' : 'none';
+      document.getElementById('mNext').style.display = hayVarias ? '' : 'none';
+
+      // info
+      const catNom = (DATA.categorias.find(c=>c.id===p.categoria)||{}).nombre || '';
+      const save = (p.antes && p.antes > p.precio) ? `<span class="m-save">Ahorra S/ ${p.antes-p.precio}</span>` : '';
+      const old = (p.antes && p.antes > p.precio) ? `<span class="m-old">S/ ${p.antes}</span>` : '';
+      const specs = [
+        p.talla ? `<div class="m-spec"><span class="e">📏</span><span>${esc(p.talla)}</span></div>` : '',
+        p.material ? `<div class="m-spec"><span class="e">🧵</span><span>${esc(p.material)}</span></div>` : ''
+      ].join('');
+      const colores = (p.colores && p.colores.length) ? `
+        <div class="m-colors"><div class="lbl">Colores disponibles:</div><div class="m-swatches">
+          ${p.colores.map(c=>`<div class="m-sw"><span class="dot" style="background:${hexDe(c)}"></span>${esc(c)}</div>`).join('')}
+        </div></div>` : '';
+      const msg = `¡Hola Kialo bebé! 💛 Me interesa: ${p.nombre} (S/${p.precio}). ¿Está disponible?`;
+      mInfo.innerHTML = `
+        ${catNom ? `<span class="m-cat">${esc(catNom)}</span>` : ''}
+        <div class="m-name">${esc(p.nombre)}</div>
+        <div class="m-price"><span class="m-now">S/ ${p.precio}</span>${old}${save}</div>
+        <div class="m-detalle">${esc(p.detalle || p.desc || '')}</div>
+        ${specs ? `<div class="m-specs">${specs}</div>` : ''}
+        ${colores}
+        <a class="btn p-buy m-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, msg)}">${WA_SVG}Pedir por WhatsApp</a>`;
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('mClose').addEventListener('click', closeModal);
+    document.getElementById('mPrev').addEventListener('click', ()=>showFoto(idx-1));
+    document.getElementById('mNext').addEventListener('click', ()=>showFoto(idx+1));
+    modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+    document.addEventListener('keydown', e=>{
+      if(!modal.classList.contains('open')) return;
+      if(e.key==='Escape') closeModal();
+      else if(e.key==='ArrowLeft') showFoto(idx-1);
+      else if(e.key==='ArrowRight') showFoto(idx+1);
+    });
+  </script>
+</body>
+</html>

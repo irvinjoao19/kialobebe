@@ -1,0 +1,85 @@
+{
+  "tienda": {
+    "nombre": "Kialo bebé",
+    "whatsapp": "51955105631",
+    "tiktok": "https://www.tiktok.com/@kialo.bebe",
+    "instagram": "#"
+  },
+  "categorias": [
+    {
+      "id": "accesorios",
+      "nombre": "Accesorios",
+      "emoji": "🎀",
+      "desc": "Boinas, lentes y más"
+    },
+    {
+      "id": "ropa",
+      "nombre": "Ropa",
+      "emoji": "👕",
+      "desc": "Suave y abrigadora"
+    },
+    {
+      "id": "zapatillas",
+      "nombre": "Zapatillas",
+      "emoji": "👟",
+      "desc": "Primeros pasitos"
+    },
+    {
+      "id": "tematicas",
+      "nombre": "Temáticas",
+      "emoji": "🦊",
+      "desc": "Para sus momentos especiales"
+    }
+  ],
+  "productos": [
+    {
+      "nombre": "Boina con lazo",
+      "categoria": "accesorios",
+      "precio": 16,
+      "antes": 20,
+      "fotos": [
+        "boina.jpg"
+      ],
+      "desc": "Boina tejida con lazo, suave y abrigadora. Le da un toque tierno y elegante a tu bebé.",
+      "detalle": "Boina tejida de punto suave que abriga sin apretar. El lazo va cosido a mano para que no se suelte. Ideal para fotos, paseos y ocasiones especiales.",
+      "talla": "Talla única · 0 a 12 meses",
+      "material": "Tejido acrílico suave",
+      "colores": [
+        "blanco",
+        "rojo",
+        "rosa",
+        "negro",
+        "beige",
+        "lila"
+      ]
+    },
+    {
+      "nombre": "Pantys panda",
+      "categoria": "ropa",
+      "precio": 12,
+      "antes": null,
+      "fotos": [
+        "pantys.jpg"
+      ],
+      "desc": "Pantys de algodón con diseño de pandita. Cómodas y abrigadoras para el día a día.",
+      "detalle": "Pantys de algodón con diseño de pandita en las rodillas. Tela elástica que no aprieta la barriguita, cómoda para gatear y jugar todo el día.",
+      "talla": "Tallas 0 a 24 meses",
+      "material": "Algodón suave con elastano",
+      "colores": []
+    },
+    {
+      "nombre": "Lentes de sol niña",
+      "categoria": "accesorios",
+      "precio": 9,
+      "antes": 15,
+      "fotos": [
+        "lentes.jpg"
+      ],
+      "desc": "Lentes con orejitas de gatito y protección UV. ¡Estilo y cuidado para sus ojitos!",
+      "detalle": "Lentes de sol con diseño de orejitas de gatito y protección UV400. Montura flexible y resistente, pensada para que no se rompa con el uso diario.",
+      "talla": "Para niñas de 1 a 5 años",
+      "material": "Marco flexible · protección UV400",
+      "colores": []
+    }
+  ]
+}
