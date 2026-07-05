@@ -38,6 +38,7 @@
       "categoria": "accesorios",
       "precio": 16,
       "antes": 20,
+      "nuevo": false,
       "fotos": [
         "boina.jpg"
       ],
@@ -60,6 +61,7 @@
       "categoria": "ropa",
       "precio": 12,
       "antes": null,
+      "nuevo": true,
       "fotos": [
         "pantys.jpg"
       ],
@@ -75,6 +77,7 @@
       "categoria": "accesorios",
       "precio": 9,
       "antes": 15,
+      "nuevo": true,
       "fotos": [
         "lentes.jpg"
       ],

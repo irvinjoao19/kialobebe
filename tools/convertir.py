@@ -43,6 +43,11 @@ def slug_codigo(nombre):
     palabras = s.split()
     return palabras[0] if palabras else "PROD"
 
+def es_si(v):
+    """Interpreta la columna 'Nuevo' del Excel: sí / x / 1 / true -> True."""
+    if v is None: return False
+    return str(v).strip().lower() in {"si","sí","x","1","true","verdadero","nuevo","yes","y","✓"}
+
 def main():
     xlsx = sys.argv[1] if len(sys.argv) > 1 else "Kialo_Catalogo.xlsx"
     wb = load_workbook(xlsx, data_only=True)
@@ -57,7 +62,7 @@ def main():
         return None
     iNom=col("nombre"); iCat=col("categor"); iPre=col("precio"); iAnt=col("antes")
     iFot=col("foto"); iDesc=col("descrip"); iDet=col("detalle"); iTalla=col("talla")
-    iMat=col("material"); iCol=col("color")
+    iMat=col("material"); iCol=col("color"); iNuevo=col("nuevo","novedad")
 
     productos, errores, avisos = [], [], []
     codigos_usados = set()
@@ -89,6 +94,7 @@ def main():
         productos.append({
             "nombre": nombre, "codigo": codigo, "categoria": cat, "precio": precio,
             "antes": antes if (antes and antes > precio) else None,
+            "nuevo": es_si(g(iNuevo)),
             "fotos": fotos,
             "desc": (str(g(iDesc)).strip() if g(iDesc) else ""),
             "detalle": (str(g(iDet)).strip() if g(iDet) else ""),

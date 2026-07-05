@@ -69,12 +69,18 @@
   .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 24px}
   .chip{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.92rem;padding:9px 18px;border-radius:999px;border:none;background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 4px 12px rgba(120,100,70,.07);transition:all .15s ease}
   .chip.on{background:var(--ink);color:#fff}
+  .chip-nuevo.on{background:var(--green)}
+  .searchbar{max-width:520px;margin:24px auto 0;position:relative}
+  .searchbar input{width:100%;font-family:"Nunito",sans-serif;font-weight:600;font-size:1rem;padding:13px 18px 13px 46px;border:none;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(120,100,70,.10);outline:none}
+  .searchbar input::placeholder{color:var(--ink-soft);font-weight:600}
+  .searchbar::before{content:"🔍";position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.75;pointer-events:none}
   .grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
   .product{flex:1 1 250px;max-width:300px;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease}
   .product:hover{transform:translateY(-5px)}
   .ph{position:relative;aspect-ratio:4/5;background:var(--cream-2);overflow:hidden}
   .ph img{width:100%;height:100%;object-fit:cover}
   .save{position:absolute;top:12px;left:12px;background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.74rem;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  .badge-nuevo{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.74rem;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
   .p-body{padding:17px 17px 19px;display:flex;flex-direction:column;flex:1}
   .p-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.18rem}
   .p-desc{font-size:.86rem;color:var(--ink-soft);font-weight:600;margin:5px 0 12px;line-height:1.45}
@@ -198,6 +204,7 @@
   </div>
 
   <main class="catalog">
+    <div class="searchbar"><input id="search" type="search" placeholder="Busca por código o nombre… (ej. BOINA)" autocomplete="off" aria-label="Buscar productos" /></div>
     <div class="filters" id="filters"></div>
     <div class="grid" id="grid"><div class="loading">Cargando productos… 💛</div></div>
     <div class="more-wrap"><button class="btn btn-more" id="more" style="display:none">Cargar más productos</button></div>
@@ -269,7 +276,9 @@
     const fotosDe = p => (Array.isArray(p.fotos) && p.fotos.length) ? p.fotos : (p.foto ? [p.foto] : []);
     const IMG = f => "assets/img/productos/" + f;
 
-    let DATA = null, current = 'todos', shown = 0;
+    // normaliza para buscar: minúsculas y sin tildes
+    const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    let DATA = null, current = 'todos', shown = 0, query = '';
     const grid = document.getElementById('grid');
     const moreBtn = document.getElementById('more');
 
@@ -295,20 +304,34 @@
         document.getElementById('productos').scrollIntoView({behavior:'smooth'});
       }));
 
-      // filtros (chips)
+      // filtros (chips) + Novedades (solo si hay productos nuevos)
       const filters = document.getElementById('filters');
-      filters.innerHTML = `<button class="chip on" data-c="todos">Todos</button>` +
-        DATA.categorias.map(c => `<button class="chip" data-c="${c.id}">${esc(c.nombre)}</button>`).join('');
+      const hayNovedades = DATA.productos.some(p => p.nuevo);
+      filters.innerHTML = `<button class="chip on" data-c="todos">Todos</button>`
+        + (hayNovedades ? `<button class="chip chip-nuevo" data-c="novedades">✨ Novedades</button>` : '')
+        + DATA.categorias.map(c => `<button class="chip" data-c="${c.id}">${esc(c.nombre)}</button>`).join('');
       filters.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => setFilter(ch.dataset.c)));
+
+      // buscador (código o nombre)
+      const search = document.getElementById('search');
+      if (search) search.addEventListener('input', e => { query = e.target.value; aplicar(); });
 
       moreBtn.addEventListener('click', renderMore);
       setFilter('todos');
     }
 
-    function list(){ return current === 'todos' ? DATA.productos : DATA.productos.filter(p => p.categoria === current); }
+    function list(){
+      let items = current === 'novedades' ? DATA.productos.filter(p => p.nuevo)
+                : current === 'todos'     ? DATA.productos
+                : DATA.productos.filter(p => p.categoria === current);
+      const q = norm(query);
+      if (q) items = items.filter(p => norm(p.codigo||'').includes(q) || norm(p.nombre||'').includes(q));
+      return items;
+    }
 
     function card(p){
       const save = (p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : '';
+      const nuevo = p.nuevo ? `<span class="badge-nuevo">✨ Nuevo</span>` : '';
       const old = (p.antes && p.antes > p.precio) ? `<span class="p-old">S/ ${p.antes}</span>` : '';
       const dots = (p.colores && p.colores.length)
         ? `<div class="p-meta">${p.colores.length} colores: ${p.colores.map(c=>`<span class="dot" style="background:${hexDe(c)}" title="${esc(c)}"></span>`).join('')}</div>` : '';
@@ -317,7 +340,7 @@
       const el = document.createElement('article');
       el.className = 'product';
       el.innerHTML = `
-        <div class="ph js-open">${save}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></div>
+        <div class="ph js-open">${save}${nuevo}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></div>
         <div class="p-body">
           <div class="p-name js-open">${esc(p.nombre)}</div>
           <div class="p-desc">${esc(p.desc||'')}</div>
@@ -338,10 +361,20 @@
     }
 
     function setFilter(c){
-      current = c; shown = 0; grid.innerHTML = '';
+      current = c;
       document.querySelectorAll('.chip').forEach(ch => ch.classList.toggle('on', ch.dataset.c === c));
+      aplicar();
+    }
+
+    function aplicar(){
+      shown = 0; grid.innerHTML = '';
       const items = list();
-      if (!items.length){ grid.innerHTML = '<div class="empty">¡Pronto agregaremos más por aquí! 💛 Escríbenos por WhatsApp.</div>'; moreBtn.style.display='none'; return; }
+      if (!items.length){
+        grid.innerHTML = query.trim()
+          ? `<div class="empty">Sin resultados para “${esc(query)}”. 💛 Prueba con otro código o nombre.</div>`
+          : '<div class="empty">¡Pronto agregaremos más por aquí! 💛 Escríbenos por WhatsApp.</div>';
+        moreBtn.style.display = 'none'; return;
+      }
       renderMore();
     }
     // ---- Modal de detalle con galería ----
@@ -387,7 +420,7 @@
           ${p.colores.map((c,i)=>`<button type="button" class="m-sw${i===0?' on':''}" data-color="${esc(c)}"><span class="dot" style="background:${hexDe(c)}"></span>${esc(c)}</button>`).join('')}
         </div></div>` : '';
       mInfo.innerHTML = `
-        ${catNom ? `<span class="m-cat">${esc(catNom)}</span>` : ''}
+        ${p.nuevo ? `<span class="m-cat" style="background:var(--green)">✨ Nuevo</span> ` : ''}${catNom ? `<span class="m-cat">${esc(catNom)}</span>` : ''}
         <div class="m-name">${esc(p.nombre)}</div>
         <div class="m-price"><span class="m-now">S/ ${p.precio}</span>${old}${save}</div>
         <div class="m-detalle">${esc(p.detalle || p.desc || '')}</div>
