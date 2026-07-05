@@ -8,7 +8,7 @@ Genera 'productos.json' en la raíz del sitio.
 - FOTOS: varias por producto, separadas por coma (ej: boina.jpg, boina-2.jpg).
 - COLORES: por NOMBRE en español (blanco, rojo, rosa...). Se validan; no hace falta saber hex.
 """
-import json, sys, os
+import json, sys, os, re, unicodedata
 from openpyxl import load_workbook
 
 CATEGORIAS = [
@@ -35,6 +35,14 @@ def lista(celda):
     if not celda: return []
     return [x.strip() for x in str(celda).split(",") if x.strip()]
 
+def slug_codigo(nombre):
+    """Código de pedido legible desde el nombre: primera palabra, sin acentos, MAYÚSCULAS.
+    Ej: 'Boina con lazo' -> 'BOINA'. La unicidad se garantiza aparte con un sufijo numérico."""
+    s = unicodedata.normalize("NFKD", str(nombre)).encode("ascii", "ignore").decode()
+    s = re.sub(r"[^A-Za-z0-9 ]", "", s).upper().strip()
+    palabras = s.split()
+    return palabras[0] if palabras else "PROD"
+
 def main():
     xlsx = sys.argv[1] if len(sys.argv) > 1 else "Kialo_Catalogo.xlsx"
     wb = load_workbook(xlsx, data_only=True)
@@ -52,6 +60,7 @@ def main():
     iMat=col("material"); iCol=col("color")
 
     productos, errores, avisos = [], [], []
+    codigos_usados = set()
     for r in range(2, ws.max_row+1):
         fila = [c.value for c in ws[r]]
         def g(i): return fila[i] if (i is not None and i < len(fila)) else None
@@ -72,8 +81,13 @@ def main():
             cl = c.lower()
             if cl in COLORES_VALIDOS: colores.append(cl)
             else: avisos.append(f"Fila {r} ('{nombre}'): color '{c}' no reconocido (se omitió).")
+        # Código único y estable para el mensaje de WhatsApp (BOINA, BOINA2, ...)
+        codigo = base = slug_codigo(nombre); n = 2
+        while codigo in codigos_usados:
+            codigo = f"{base}{n}"; n += 1
+        codigos_usados.add(codigo)
         productos.append({
-            "nombre": nombre, "categoria": cat, "precio": precio,
+            "nombre": nombre, "codigo": codigo, "categoria": cat, "precio": precio,
             "antes": antes if (antes and antes > precio) else None,
             "fotos": fotos,
             "desc": (str(g(iDesc)).strip() if g(iDesc) else ""),

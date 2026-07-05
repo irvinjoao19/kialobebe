@@ -144,8 +144,10 @@
   .m-colors{margin-bottom:20px}
   .m-colors .lbl{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.86rem;color:var(--ink-soft);margin-bottom:8px}
   .m-swatches{display:flex;gap:12px;flex-wrap:wrap}
-  .m-sw{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.72rem;color:var(--ink-soft);font-weight:700}
-  .m-sw .dot{width:30px;height:30px;border:2px solid #0001}
+  .m-sw{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.72rem;color:var(--ink-soft);font-weight:700;background:none;border:none;cursor:pointer;font-family:inherit;padding:2px}
+  .m-sw .dot{width:30px;height:30px;border:2px solid #0001;transition:box-shadow .15s ease,border-color .15s ease}
+  .m-sw.on{color:var(--ink)}
+  .m-sw.on .dot{border-color:var(--coral);box-shadow:0 0 0 3px #F0655A33}
   .m-buy{margin-top:auto}
   @media (max-width:560px){
     .m-name{font-size:1.4rem}.m-info{padding:22px 20px}
@@ -244,6 +246,14 @@
     const PAGE = 24;
     const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
     const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    // Código de pedido legible para el mensaje de WhatsApp (ej: BOINA-ROJO)
+    const up = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+    function pedidoMsg(p, color){
+      const cod = p.codigo ? (color ? `${p.codigo}-${up(color)}` : p.codigo) : '';
+      const colorTxt = color ? color.charAt(0).toUpperCase() + color.slice(1) : '';
+      const linea = `${p.nombre}${color ? ` (${colorTxt})` : ''} · S/${p.precio}`;
+      return `¡Hola Kialo bebé! 💛 Quiero este:\n${cod ? `*${cod}* — ` : ''}${linea}\n¿Está disponible?`;
+    }
 
     // Colores por nombre -> hex (para mostrar el puntito de color)
     const COLOR_MAP = {
@@ -302,7 +312,7 @@
       const old = (p.antes && p.antes > p.precio) ? `<span class="p-old">S/ ${p.antes}</span>` : '';
       const dots = (p.colores && p.colores.length)
         ? `<div class="p-meta">${p.colores.length} colores: ${p.colores.map(c=>`<span class="dot" style="background:${hexDe(c)}" title="${esc(c)}"></span>`).join('')}</div>` : '';
-      const msg = `¡Hola Kialo bebé! 💛 Me interesa: ${p.nombre} (S/${p.precio}). ¿Está disponible?`;
+      const msg = pedidoMsg(p, null);
       const portada = fotosDe(p)[0] || '';
       const el = document.createElement('article');
       el.className = 'product';
@@ -371,11 +381,11 @@
         p.talla ? `<div class="m-spec"><span class="e">📏</span><span>${esc(p.talla)}</span></div>` : '',
         p.material ? `<div class="m-spec"><span class="e">🧵</span><span>${esc(p.material)}</span></div>` : ''
       ].join('');
+      const color0 = (p.colores && p.colores.length) ? p.colores[0] : null;
       const colores = (p.colores && p.colores.length) ? `
-        <div class="m-colors"><div class="lbl">Colores disponibles:</div><div class="m-swatches">
-          ${p.colores.map(c=>`<div class="m-sw"><span class="dot" style="background:${hexDe(c)}"></span>${esc(c)}</div>`).join('')}
+        <div class="m-colors"><div class="lbl">Elige color:</div><div class="m-swatches">
+          ${p.colores.map((c,i)=>`<button type="button" class="m-sw${i===0?' on':''}" data-color="${esc(c)}"><span class="dot" style="background:${hexDe(c)}"></span>${esc(c)}</button>`).join('')}
         </div></div>` : '';
-      const msg = `¡Hola Kialo bebé! 💛 Me interesa: ${p.nombre} (S/${p.precio}). ¿Está disponible?`;
       mInfo.innerHTML = `
         ${catNom ? `<span class="m-cat">${esc(catNom)}</span>` : ''}
         <div class="m-name">${esc(p.nombre)}</div>
@@ -383,7 +393,16 @@
         <div class="m-detalle">${esc(p.detalle || p.desc || '')}</div>
         ${specs ? `<div class="m-specs">${specs}</div>` : ''}
         ${colores}
-        <a class="btn p-buy m-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, msg)}">${WA_SVG}Pedir por WhatsApp</a>`;
+        <a id="mBuy" class="btn p-buy m-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, pedidoMsg(p, color0))}">${WA_SVG}Pedir por WhatsApp</a>`;
+
+      // El color elegido se agrega al código y al mensaje (BOINA-ROJO), en vivo
+      let selColor = color0;
+      const mBuy = document.getElementById('mBuy');
+      mInfo.querySelectorAll('.m-sw').forEach(b => b.addEventListener('click', () => {
+        selColor = b.dataset.color;
+        mInfo.querySelectorAll('.m-sw').forEach(x => x.classList.toggle('on', x === b));
+        mBuy.href = wa(DATA.tienda.whatsapp, pedidoMsg(p, selColor));
+      }));
 
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');

@@ -6,3 +6,7 @@
 
 # Excel temporal (archivos abiertos)
 tools/~$*.xlsx
+
+# Python
+tools/__pycache__/
+*.pyc
