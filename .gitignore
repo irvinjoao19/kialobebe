@@ -10,3 +10,7 @@ tools/~$*.xlsx
 # Python
 tools/__pycache__/
 *.pyc
+tools/.venv/
+
+# Fotos crudas (staging local; se procesan a assets/img/productos/ como .webp)
+tools/fotos_nuevas/

@@ -8,7 +8,7 @@ Genera 'productos.json' en la raíz del sitio.
 - FOTOS: varias por producto, separadas por coma (ej: boina.jpg, boina-2.jpg).
 - COLORES: por NOMBRE en español (blanco, rojo, rosa...). Se validan; no hace falta saber hex.
 """
-import json, sys, os, re, unicodedata
+import json, sys, os, re, glob, unicodedata
 from openpyxl import load_workbook
 
 CATEGORIAS = [
@@ -48,6 +48,16 @@ def es_si(v):
     if v is None: return False
     return str(v).strip().lower() in {"si","sí","x","1","true","verdadero","nuevo","yes","y","✓"}
 
+def orden_natural(nombre):
+    """Ordena boina-1, boina-2, ..., boina-10 correctamente (no 1, 10, 2)."""
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", nombre)]
+
+def fotos_por_codigo(carpeta_assets, codigo):
+    """Fotos ya optimizadas del producto: assets/img/productos/<codigo>-N.webp"""
+    patron = os.path.join(carpeta_assets, f"{codigo.lower()}-*.webp")
+    archivos = sorted(glob.glob(patron), key=lambda p: orden_natural(os.path.basename(p)))
+    return [os.path.basename(a) for a in archivos]
+
 def main():
     xlsx = sys.argv[1] if len(sys.argv) > 1 else "Kialo_Catalogo.xlsx"
     wb = load_workbook(xlsx, data_only=True)
@@ -64,6 +74,8 @@ def main():
     iFot=col("foto"); iDesc=col("descrip"); iDet=col("detalle"); iTalla=col("talla")
     iMat=col("material"); iCol=col("color"); iNuevo=col("nuevo","novedad")
 
+    en_tools = os.path.basename(os.getcwd()) == "tools"
+    assets_dir = os.path.join("..", "assets", "img", "productos") if en_tools else os.path.join("assets", "img", "productos")
     productos, errores, avisos = [], [], []
     codigos_usados = set()
     for r in range(2, ws.max_row+1):
@@ -79,8 +91,6 @@ def main():
             errores.append(f"Fila {r} ('{nombre}'): falta el precio."); continue
         antes = num(g(iAnt))
         fotos = lista(g(iFot))
-        if not fotos:
-            avisos.append(f"Fila {r} ('{nombre}'): sin fotos.")
         colores = []
         for c in lista(g(iCol)):
             cl = c.lower()
@@ -91,11 +101,17 @@ def main():
         while codigo in codigos_usados:
             codigo = f"{base}{n}"; n += 1
         codigos_usados.add(codigo)
+        # Fotos: primero las optimizadas (assets/img/productos/<cod>-N.webp);
+        # si no hay, cae a la columna Fotos del Excel (respaldo).
+        fotos_webp = fotos_por_codigo(assets_dir, codigo)
+        fotos_final = fotos_webp if fotos_webp else fotos
+        if not fotos_final:
+            avisos.append(f"Fila {r} ('{nombre}'): sin fotos (arrastra fotos a su carpeta y corre procesar_fotos.py).")
         productos.append({
             "nombre": nombre, "codigo": codigo, "categoria": cat, "precio": precio,
             "antes": antes if (antes and antes > precio) else None,
             "nuevo": es_si(g(iNuevo)),
-            "fotos": fotos,
+            "fotos": fotos_final,
             "desc": (str(g(iDesc)).strip() if g(iDesc) else ""),
             "detalle": (str(g(iDet)).strip() if g(iDet) else ""),
             "talla": (str(g(iTalla)).strip() if g(iTalla) else ""),
