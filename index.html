@@ -159,6 +159,50 @@
     .m-name{font-size:1.4rem}.m-info{padding:22px 20px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none;animation:none}}
+
+  /* ── Quiénes somos ── */
+  .nosotros{max-width:1120px;margin:54px auto 0;padding:0 18px}
+  .nosotros-in{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+  .nosotros-card{flex:1 1 220px;max-width:260px;background:#fff;border-radius:20px;padding:28px 22px;text-align:center;box-shadow:0 8px 20px rgba(120,100,70,.07)}
+  .nosotros-card .e{font-size:2rem;display:block;margin-bottom:10px}
+  .nosotros-card b{font-family:"Fredoka",sans-serif;font-size:1.05rem;display:block;margin-bottom:8px}
+  .nosotros-card p{font-size:.87rem;color:var(--ink-soft);font-weight:600;line-height:1.5}
+
+  /* ── Testimonios ── */
+  .testimonios{max-width:1120px;margin:54px auto 0;padding:0 18px}
+  .test-grid{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+  .test-grid img{width:260px;border-radius:18px;box-shadow:var(--shadow);loading:lazy}
+  .test-placeholder{width:100%;padding:48px 20px;text-align:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .test-placeholder .e{font-size:2.5rem;display:block;margin-bottom:12px}
+  .test-placeholder p{color:var(--ink-soft);font-weight:600}
+
+  /* ── Envíos ── */
+  .envios{max-width:1120px;margin:54px auto 0;padding:0 18px}
+  .envios-in{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+  .envio-card{flex:1 1 240px;max-width:320px;background:#fff;border-radius:22px;padding:32px 26px;text-align:center;box-shadow:var(--shadow)}
+  .envio-card.destacado{border:2.5px solid var(--green)}
+  .envio-card .e{font-size:2.2rem;display:block;margin-bottom:12px}
+  .envio-card b{font-family:"Fredoka",sans-serif;font-size:1.15rem;display:block;margin-bottom:6px}
+  .envio-card .dias{font-family:"Fredoka",sans-serif;color:var(--coral);font-size:.95rem;font-weight:600;margin-bottom:10px}
+  .envio-card p{font-size:.87rem;color:var(--ink-soft);font-weight:600;line-height:1.55;margin:0}
+  .envio-card .btn{margin-top:18px;font-size:.85rem;padding:10px 18px}
+
+  /* ── Nuestro camino TikTok ── */
+  .tk-journey{max-width:1120px;margin:54px auto 0;padding:0 18px}
+  .tk-grid{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+  .tk-card{position:relative;width:200px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:block}
+  .tk-card img{width:100%;aspect-ratio:9/16;object-fit:cover}
+  .tk-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+  .tk-placeholder{width:100%;padding:48px 20px;text-align:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .tk-placeholder .e{font-size:2.5rem;display:block;margin-bottom:12px}
+  .tk-placeholder p{color:var(--ink-soft);font-weight:600;margin-bottom:20px}
+
+  /* ── Empty state catálogo ── */
+  .empty-state{width:100%;padding:60px 20px;text-align:center;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .empty-state .es-ico{font-size:3.5rem;display:block;margin-bottom:16px}
+  .empty-state h3{font-family:"Fredoka",sans-serif;font-size:1.7rem;margin-bottom:10px}
+  .empty-state p{color:var(--ink-soft);font-weight:600;max-width:46ch;margin:0 auto 24px}
+  @media(max-width:560px){.envio-card{padding:24px 18px}.nosotros-card{padding:22px 16px}}
 </style>
 </head>
 <body>
@@ -168,6 +212,8 @@
     <div class="top-in">
       <a class="brand" href="#"><img src="assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
       <nav class="nav">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#envios">Envíos</a>
         <a href="#categorias">Categorías</a>
         <a href="#productos">Productos</a>
         <a href="#tiktok">En vivo</a>
@@ -195,6 +241,25 @@
     <div class="benefit"><span class="e">🔴</span><div><b>En vivo en TikTok</b><span>Te mostramos todo en directo</span></div></div>
   </section>
 
+  <!-- ── Quiénes somos ── -->
+  <section class="nosotros" id="nosotros">
+    <div class="head"><h2>Quiénes somos</h2><div class="line"></div></div>
+    <div class="nosotros-in">
+      <div class="nosotros-card"><span class="e">👶</span><b>Tienda para bebés y niños</b><p>Somos una tienda familiar especializada en ropa, accesorios, zapatillas y disfraces para los más pequeños de la casa.</p></div>
+      <div class="nosotros-card"><span class="e">✨</span><b>Productos seleccionados</b><p>Elegimos cada producto pensando en la calidad, la ternura y el precio justo para que consentir a tu bebé sea fácil.</p></div>
+      <div class="nosotros-card"><span class="e">💬</span><b>Atención personalizada</b><p>Hablamos contigo directamente por WhatsApp. Resolvemos dudas de tallas, colores y disponibilidad al instante.</p></div>
+      <div class="nosotros-card"><span class="e">📱</span><b>En vivo por TikTok</b><p>Mostramos todos nuestros productos en lives de TikTok para que los veas en detalle antes de pedir.</p></div>
+    </div>
+  </section>
+
+  <!-- ── Testimonios ── -->
+  <section class="testimonios" id="testimonios">
+    <div class="head"><h2>Lo que dicen nuestras mamitas</h2><div class="line"></div><p>Mensajes reales de quienes ya confían en nosotros 💛</p></div>
+    <div class="test-grid">
+      <div class="test-placeholder"><span class="e">💬</span><p>¡Próximamente compartiremos los mensajes de nuestras mamitas!</p></div>
+    </div>
+  </section>
+
   <div class="head" id="categorias"><h2>Explora por categoría</h2><div class="line"></div></div>
   <section class="cats" id="cats"></section>
 
@@ -209,6 +274,44 @@
     <div class="grid" id="grid"><div class="loading">Cargando productos… 💛</div></div>
     <div class="more-wrap"><button class="btn btn-more" id="more" style="display:none">Cargar más productos</button></div>
   </main>
+
+  <!-- ── Envíos y entregas ── -->
+  <section class="envios" id="envios">
+    <div class="head"><h2>Envíos y entregas</h2><div class="line"></div><p>Llevamos tu pedido a todo el Perú</p></div>
+    <div class="envios-in">
+      <div class="envio-card">
+        <span class="e">📦</span>
+        <b>Agencia Shalom</b>
+        <p class="dias">Martes · Jueves · Sábados</p>
+        <p>Enviamos a todo el Perú por la agencia Shalom. Los pedidos realizados antes del día de envío salen en la siguiente fecha disponible.</p>
+      </div>
+      <div class="envio-card destacado">
+        <span class="e">🛵</span>
+        <b>Motorizado</b>
+        <p class="dias">Cono Norte de Lima</p>
+        <p>Hacemos delivery por motorizado a toda la zona del cono norte. Coordina el costo y horario directamente por WhatsApp.</p>
+        <a class="btn btn-wa" href="https://wa.me/51955105631?text=Hola%2C+quisiera+coordinar+un+motorizado+para+mi+pedido+%F0%9F%9B%B5" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Coordinar envío</a>
+      </div>
+      <div class="envio-card">
+        <span class="e">⏰</span>
+        <b>Tiempos de entrega</b>
+        <p class="dias">1 a 3 días hábiles</p>
+        <p>Una vez despachado tu pedido, el tiempo de tránsito depende de tu ciudad. Te enviamos el código de seguimiento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Nuestro camino en TikTok ── -->
+  <section class="tk-journey" id="nuestro-camino">
+    <div class="head"><h2>Nuestro camino</h2><div class="line"></div><p>Desde nuestros primeros lives hasta hoy 🎵</p></div>
+    <div class="tk-grid">
+      <div class="tk-placeholder">
+        <span class="e">🎬</span>
+        <p>¡Próximamente compartiremos videos de nuestro camino en TikTok!</p>
+        <a class="btn btn-wa" style="background:var(--ink)" data-tiktok target="_blank" rel="noopener">Ver en TikTok →</a>
+      </div>
+    </div>
+  </section>
 
   <section class="live" id="tiktok">
     <div class="live-in">
@@ -249,6 +352,9 @@
   </div>
 
   <script>
+    // Cambiar a true cuando el catálogo esté listo con fotos reales
+    const CATALOGO_ACTIVO = false;
+
     const WA_SVG = '<svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>';
     const PAGE = 24;
     const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
@@ -292,7 +398,6 @@
       document.querySelectorAll('[data-wa]').forEach(a => a.href = wa(num, a.dataset.wa));
       document.querySelectorAll('[data-tiktok]').forEach(a => a.href = DATA.tienda.tiktok || '#');
       document.querySelectorAll('[data-instagram]').forEach(a => a.href = DATA.tienda.instagram || '#');
-      const waNum = document.getElementById('wa-num'); if (waNum) waNum.textContent = '+' + num;
 
       // categorias (tiles)
       const cats = document.getElementById('cats');
@@ -368,11 +473,19 @@
 
     function aplicar(){
       shown = 0; grid.innerHTML = '';
+      if (!CATALOGO_ACTIVO){
+        const waLink = wa(DATA.tienda.whatsapp, '¡Hola Kialo bebé! 💛 Quisiera ver sus productos.');
+        grid.innerHTML = `<div class=”empty-state”><span class=”es-ico”>🛒</span><h3>¡Estamos preparando el catálogo!</h3><p>Muy pronto encontrarás aquí toda nuestra colección. Mientras tanto escríbenos por WhatsApp y te atendemos al toque.</p><a class=”btn btn-wa btn-lg” href=”${waLink}” target=”_blank” rel=”noopener”>${WA_SVG}Escribir por WhatsApp</a></div>`;
+        document.querySelector('.searchbar').style.display = 'none';
+        document.getElementById('filters').style.display = 'none';
+        moreBtn.style.display = 'none';
+        return;
+      }
       const items = list();
       if (!items.length){
         grid.innerHTML = query.trim()
-          ? `<div class="empty">Sin resultados para “${esc(query)}”. 💛 Prueba con otro código o nombre.</div>`
-          : '<div class="empty">¡Pronto agregaremos más por aquí! 💛 Escríbenos por WhatsApp.</div>';
+          ? `<div class=”empty”>Sin resultados para “${esc(query)}”. 💛 Prueba con otro código o nombre.</div>`
+          : '<div class=”empty”>¡Pronto agregaremos más por aquí! 💛 Escríbenos por WhatsApp.</div>';
         moreBtn.style.display = 'none'; return;
       }
       renderMore();
