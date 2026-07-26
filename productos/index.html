@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catálogo · Kialo bebé — Ropa, zapatitos y accesorios para tu bebé</title>
+<meta name="description" content="Explora todo el catálogo de Kialo bebé: ropa, zapatitos, accesorios y disfraces para bebés y niños. Filtra por categoría, talla, color y precio. Pide fácil por WhatsApp con envíos a todo el Perú." />
+<link rel="canonical" href="https://kialobebe.com/productos/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Catálogo · Kialo bebé" />
+<meta property="og:description" content="Ropa, zapatitos, accesorios y disfraces tiernos para tu bebé. Envíos a todo el Perú." />
+<meta property="og:url" content="https://kialobebe.com/productos/" />
+<meta property="og:image" content="https://kialobebe.com/assets/img/brand/hero.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FBF6EC; --cream-2:#F3EADA; --card:#FFFFFF;
+    --ink:#3B4756; --ink-soft:#74808F; --line:rgba(150,130,100,.16);
+    --coral:#F0655A; --yellow:#F4C040; --green:#6CB94E;
+    --teal:#3FB6A8; --blue:#3E8FD0; --purple:#9B6FC9;
+    --wa:#25D366; --radius:22px; --shadow:0 14px 34px rgba(120,100,70,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Nunito",sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.ff{font-family:"Fredoka",sans-serif;font-weight:600;line-height:1.12}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit}
+  .wa-ico{width:18px;height:18px;fill:currentColor;flex:none}
+
+  /* Top bar */
+  .top{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .top-in{max-width:1240px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.14rem;flex:none}
+  .brand img{width:38px;height:38px;border-radius:11px}
+  .top-search{flex:1;position:relative;max-width:520px;margin:0 auto}
+  .top-search input{width:100%;font-family:"Nunito",sans-serif;font-weight:600;font-size:.98rem;padding:11px 16px 11px 42px;border:none;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(120,100,70,.10);outline:none}
+  .top-search input::placeholder{color:var(--ink-soft);font-weight:600}
+  .top-search::before{content:"🔍";position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:.95rem;opacity:.75;pointer-events:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:"Fredoka",sans-serif;font-weight:600;border:none;border-radius:999px;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;text-align:center}
+  .btn:active{transform:scale(.97)}
+  .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3);flex:none}
+
+  /* Breadcrumb + title */
+  .wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+  .crumb{font-size:.82rem;color:var(--ink-soft);font-weight:700;padding:18px 0 4px}
+  .crumb a:hover{color:var(--coral)}
+  .page-title{font-size:2rem;margin:2px 0 2px}
+  .page-sub{color:var(--ink-soft);font-weight:600;margin-bottom:12px}
+
+  /* Layout */
+  .layout{display:grid;grid-template-columns:255px 1fr;gap:28px;padding-bottom:60px;align-items:start}
+
+  /* Sidebar filters */
+  .sidebar{position:sticky;top:74px;background:#fff;border-radius:var(--radius);box-shadow:0 8px 20px rgba(120,100,70,.07);padding:6px 20px 20px}
+  .fgroup{padding:16px 0;border-bottom:1px solid var(--line)}
+  .fgroup:last-child{border-bottom:none}
+  .fgroup h3{font-size:.98rem;margin-bottom:12px}
+  .fchips{display:flex;flex-wrap:wrap;gap:8px}
+  .fchip{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.86rem;padding:7px 13px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .13s ease}
+  .fchip:hover{border-color:var(--coral)}
+  .fchip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fchip.on.cnuevo{background:var(--green);border-color:var(--green)}
+  .swatches{display:flex;flex-wrap:wrap;gap:9px}
+  .sw{width:30px;height:30px;border-radius:50%;border:2px solid #0001;cursor:pointer;position:relative;transition:transform .12s ease}
+  .sw:hover{transform:scale(1.1)}
+  .sw.on{box-shadow:0 0 0 3px #F0655A55;border-color:#fff}
+  .sw.on::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:800;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+  .price-row{display:flex;align-items:center;gap:8px}
+  .price-row input{width:100%;font-family:"Nunito",sans-serif;font-weight:700;font-size:.9rem;padding:9px 11px;border:1.5px solid var(--line);border-radius:12px;color:var(--ink);outline:none;min-width:0}
+  .price-row input:focus{border-color:var(--coral)}
+  .price-row span{color:var(--ink-soft);font-weight:700;flex:none}
+  .fclear{margin-top:6px;width:100%;background:none;border:none;color:var(--coral);font-family:"Fredoka",sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;padding:10px 0 2px}
+
+  /* Toolbar */
+  .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .count{font-weight:700;color:var(--ink-soft);font-size:.92rem}
+  .count b{color:var(--ink)}
+  .tools-right{display:flex;align-items:center;gap:10px}
+  .sort-sel{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.9rem;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);cursor:pointer;outline:none}
+  .btn-filtros{display:none;background:#fff;color:var(--ink);border:1.5px solid var(--line);font-size:.9rem;padding:9px 16px}
+  .btn-filtros.has-count{border-color:var(--coral);color:var(--coral)}
+
+  /* Active filter pills */
+  .active-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:5px 8px 5px 12px;font-size:.82rem;font-weight:700;color:var(--ink)}
+  .pill button{border:none;background:var(--cream-2);width:18px;height:18px;border-radius:50%;cursor:pointer;color:var(--ink-soft);font-size:.8rem;line-height:1;display:flex;align-items:center;justify-content:center}
+  .pill button:hover{background:var(--coral);color:#fff}
+
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+  .product{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease;position:relative}
+  .product:hover{transform:translateY(-5px)}
+  .ph{position:relative;aspect-ratio:4/5;background:var(--cream-2);overflow:hidden;display:block}
+  .ph img{width:100%;height:100%;object-fit:cover}
+  .save{position:absolute;top:11px;left:11px;background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  .badge-nuevo{position:absolute;top:11px;right:11px;background:var(--green);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+  .p-body{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
+  .p-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.06rem;line-height:1.2}
+  .p-meta{font-size:.75rem;color:var(--ink-soft);font-weight:700;margin:7px 0 10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block;border:1.5px solid #0001}
+  .p-price{display:flex;align-items:baseline;gap:8px;margin-top:auto;margin-bottom:12px}
+  .p-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.28rem;color:var(--coral)}
+  .p-old{font-size:.88rem;color:var(--ink-soft);text-decoration:line-through}
+  .p-buy{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.9rem;padding:11px;border-radius:14px;box-shadow:0 8px 18px rgba(37,211,102,.24);transition:transform .15s ease, box-shadow .15s ease}
+  .p-buy:hover{box-shadow:0 10px 22px rgba(37,211,102,.36)}
+  .p-buy:active{transform:scale(.97)}
+
+  .more-wrap{text-align:center;margin:34px 0 0}
+  .btn-more{background:#fff;color:var(--ink);font-size:1rem;padding:13px 30px;box-shadow:var(--shadow)}
+  .loading,.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-soft);font-weight:700}
+  .empty .es-ico{font-size:3rem;display:block;margin-bottom:14px}
+  .empty h3{font-family:"Fredoka",sans-serif;font-size:1.5rem;color:var(--ink);margin-bottom:8px}
+
+  /* Drawer (mobile filters) */
+  .drawer-back{position:fixed;inset:0;background:rgba(40,33,30,.5);backdrop-filter:blur(2px);z-index:60;display:none}
+  .drawer-back.open{display:block}
+  .drawer-head{display:none;align-items:center;justify-content:space-between;padding:4px 0 14px;border-bottom:1px solid var(--line);margin-bottom:6px}
+  .drawer-head h2{font-size:1.2rem}
+  .drawer-head button{border:none;background:var(--cream-2);width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--ink)}
+  .drawer-apply{display:none}
+
+  footer{margin-top:20px;background:var(--cream-2);padding:34px 18px 26px;text-align:center}
+  .f-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.2rem}
+  .f-tag{color:var(--ink-soft);font-weight:600;margin:4px 0 14px;font-size:.9rem}
+  .f-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .f-links a{display:inline-flex;align-items:center;gap:7px;background:#fff;font-weight:700;font-size:.86rem;padding:9px 16px;border-radius:999px;box-shadow:0 6px 16px rgba(120,100,70,.08)}
+  .copy{margin-top:18px;font-size:.78rem;color:var(--ink-soft)}
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr}
+    .btn-filtros{display:inline-flex}
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);z-index:70;border-radius:0 22px 22px 0;overflow-y:auto;transform:translateX(-100%);transition:transform .25s ease;padding:18px 20px 90px}
+    .sidebar.open{transform:translateX(0)}
+    .drawer-head{display:flex}
+    .drawer-apply{display:block;position:sticky;bottom:0;margin:14px -20px -20px;padding:14px 20px;background:#fff;border-top:1px solid var(--line)}
+    .drawer-apply .btn{width:100%;background:var(--coral);color:#fff;font-size:1rem;padding:13px}
+  }
+  @media (max-width:560px){
+    .top-search{order:3;flex-basis:100%;max-width:none;margin-top:6px}
+    .top-in{flex-wrap:wrap}
+    .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .p-body{padding:11px}.p-name{font-size:.94rem}.p-now{font-size:1.1rem}.p-buy{font-size:.82rem;padding:10px}
+    .page-title{font-size:1.6rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none;animation:none}}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="top-in">
+      <a class="brand" href="/"><img src="/assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
+      <div class="top-search"><input id="search" type="search" placeholder="Buscar producto o código…" autocomplete="off" aria-label="Buscar productos" /></div>
+      <a class="btn btn-wa" data-wa="¡Hola Kialo bebé! 💛 Quiero hacer una consulta" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <nav class="crumb"><a href="/">Inicio</a> › <span>Catálogo</span></nav>
+    <h1 class="page-title">Catálogo completo 🧸</h1>
+    <p class="page-sub">Filtra por categoría, talla, color y precio. Pide lo que te guste por WhatsApp 💛</p>
+
+    <div class="layout">
+      <!-- Sidebar de filtros -->
+      <aside class="sidebar" id="sidebar">
+        <div class="drawer-head">
+          <h2>Filtros</h2>
+          <button id="drawerClose" aria-label="Cerrar filtros">✕</button>
+        </div>
+        <div class="fgroup"><h3>Categoría</h3><div class="fchips" id="fCategorias"></div></div>
+        <div class="fgroup" id="gGenero"><h3>Género</h3><div class="fchips" id="fGenero"></div></div>
+        <div class="fgroup" id="gTallas"><h3>Talla</h3><div class="fchips" id="fTallas"></div></div>
+        <div class="fgroup" id="gColores"><h3>Color</h3><div class="swatches" id="fColores"></div></div>
+        <div class="fgroup"><h3>Precio (S/)</h3>
+          <div class="price-row">
+            <input id="pMin" type="number" min="0" inputmode="numeric" placeholder="Desde" aria-label="Precio desde" />
+            <span>—</span>
+            <input id="pMax" type="number" min="0" inputmode="numeric" placeholder="Hasta" aria-label="Precio hasta" />
+          </div>
+        </div>
+        <div class="fgroup"><h3>Otros</h3><div class="fchips" id="fFlags"></div></div>
+        <button class="fclear" id="clearFilters">Limpiar filtros</button>
+        <div class="drawer-apply"><button class="btn" id="drawerApply">Ver resultados</button></div>
+      </aside>
+
+      <!-- Contenido -->
+      <div>
+        <div class="toolbar">
+          <div class="count" id="count">Cargando…</div>
+          <div class="tools-right">
+            <button class="btn btn-filtros" id="openFiltros">⚙ Filtros</button>
+            <select class="sort-sel" id="sort" aria-label="Ordenar">
+              <option value="relevancia">Ordenar: Relevancia</option>
+              <option value="nuevo">Novedades primero</option>
+              <option value="precio-asc">Menor precio</option>
+              <option value="precio-desc">Mayor precio</option>
+            </select>
+          </div>
+        </div>
+        <div class="active-pills" id="activePills"></div>
+        <div class="grid" id="grid"><div class="loading">Cargando productos… 💛</div></div>
+        <div class="more-wrap"><button class="btn btn-more" id="more" style="display:none">Cargar más productos</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-back" id="drawerBack"></div>
+
+  <footer>
+    <div class="f-name">Kialo bebé</div>
+    <p class="f-tag">Ternura para los más pequeñitos 🌈</p>
+    <div class="f-links">
+      <a data-wa="¡Hola Kialo bebé! 💛" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>WhatsApp</a>
+      <a data-tiktok target="_blank" rel="noopener">🎵 TikTok</a>
+      <a href="/">← Volver al inicio</a>
+    </div>
+    <p class="copy">© 2026 Kialo bebé · Hecho con 💛 en Perú</p>
+  </footer>
+
+  <script>
+    const PAGE = 24;
+    const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const up = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+    const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+    const slugify = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    const WA_SVG = '<svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>';
+
+    const COLOR_MAP = {
+      blanco:"#ffffff", negro:"#2b2b2b", gris:"#9aa0a6", plomo:"#9aa0a6",
+      rojo:"#F0655A", coral:"#F0655A", rosa:"#f7a8c4", rosado:"#f7a8c4", fucsia:"#e85a9b",
+      amarillo:"#F4C040", mostaza:"#e0a93a", naranja:"#f29b50", naranjado:"#f29b50",
+      verde:"#6CB94E", "verde agua":"#3FB6A8", turquesa:"#3FB6A8", celeste:"#7cc1ec",
+      azul:"#3E8FD0", "azul marino":"#2c3e7a", morado:"#9B6FC9", lila:"#b79be0", violeta:"#9B6FC9",
+      beige:"#d8c4a3", crema:"#efe6d3", marron:"#9c6b4a", "marrón":"#9c6b4a", cafe:"#9c6b4a",
+      dorado:"#d4af37", plateado:"#c0c4c9", vino:"#7d2240"
+    };
+    const hexDe = c => { const s = String(c).trim(); return s.startsWith('#') ? s.toLowerCase() : (COLOR_MAP[s.toLowerCase()] || '#d9d2c5'); };
+    const fotosDe = p => (Array.isArray(p.fotos) && p.fotos.length) ? p.fotos : (p.foto ? [p.foto] : []);
+    const IMG = f => "/assets/img/productos/" + f;
+    const SITE = 'https://kialobebe.com';
+    const prodUrl = p => `/productos/${slugify(p.codigo)}/`;
+    const tallasDe = p => (Array.isArray(p.tallas) && p.tallas.length) ? p.tallas : (p.talla ? [p.talla] : []);
+    const pedidoMsg = p => {
+      const cod = p.codigo ? `*${p.codigo}* — ` : '';
+      return `¡Hola Kialo bebé! 💛 Quiero este:\n${cod}${p.nombre} · S/${p.precio}\n${SITE}${prodUrl(p)}\n¿Está disponible?`;
+    };
+
+    let DATA = null, shown = 0;
+    const grid = document.getElementById('grid');
+    const moreBtn = document.getElementById('more');
+    const F = { cat:'todos', genero:new Set(), tallas:new Set(), colores:new Set(), pMin:null, pMax:null, nuevo:false, oferta:false, sort:'relevancia', q:'' };
+
+    fetch('/productos.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => { DATA = data; init(); })
+      .catch(() => { grid.innerHTML = '<div class="empty">No pudimos cargar los productos. 💛</div>'; });
+
+    function init(){
+      const num = DATA.tienda.whatsapp;
+      document.querySelectorAll('[data-wa]').forEach(a => a.href = wa(num, a.dataset.wa));
+      document.querySelectorAll('[data-tiktok]').forEach(a => a.href = DATA.tienda.tiktok || '#');
+
+      buildFilters();
+
+      // Preseleccionar categoría desde ?cat= (viene de la home)
+      const params = new URLSearchParams(location.search);
+      const catParam = params.get('cat');
+      if (catParam && (catParam === 'novedades' || DATA.categorias.some(c => c.id === catParam))) {
+        if (catParam === 'novedades') F.nuevo = true; else F.cat = catParam;
+      }
+      const qParam = params.get('q');
+      if (qParam) { F.q = qParam; document.getElementById('search').value = qParam; }
+
+      // listeners
+      document.getElementById('search').addEventListener('input', e => { F.q = e.target.value; apply(); });
+      document.getElementById('sort').addEventListener('change', e => { F.sort = e.target.value; apply(); });
+      document.getElementById('pMin').addEventListener('input', e => { F.pMin = e.target.value ? +e.target.value : null; apply(); });
+      document.getElementById('pMax').addEventListener('input', e => { F.pMax = e.target.value ? +e.target.value : null; apply(); });
+      document.getElementById('clearFilters').addEventListener('click', clearAll);
+      moreBtn.addEventListener('click', renderMore);
+
+      // drawer móvil
+      const sidebar = document.getElementById('sidebar');
+      const back = document.getElementById('drawerBack');
+      const openDrawer = () => { sidebar.classList.add('open'); back.classList.add('open'); document.body.style.overflow='hidden'; };
+      const closeDrawer = () => { sidebar.classList.remove('open'); back.classList.remove('open'); document.body.style.overflow=''; };
+      document.getElementById('openFiltros').addEventListener('click', openDrawer);
+      document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+      document.getElementById('drawerApply').addEventListener('click', closeDrawer);
+      back.addEventListener('click', closeDrawer);
+
+      apply();
+    }
+
+    function buildFilters(){
+      // Categorías
+      const cont = document.getElementById('fCategorias');
+      cont.innerHTML = `<button class="fchip on" data-c="todos">Todas</button>` +
+        DATA.categorias.map(c => `<button class="fchip" data-c="${c.id}">${esc(c.nombre)}</button>`).join('');
+      cont.querySelectorAll('.fchip').forEach(b => b.addEventListener('click', () => {
+        F.cat = b.dataset.c;
+        cont.querySelectorAll('.fchip').forEach(x => x.classList.toggle('on', x === b));
+        apply();
+      }));
+
+      // Género (solo los presentes)
+      const generos = [...new Set(DATA.productos.map(p => p.genero).filter(Boolean))];
+      const gG = document.getElementById('gGenero'), fG = document.getElementById('fGenero');
+      if (generos.length) {
+        fG.innerHTML = generos.map(g => `<button class="fchip" data-g="${esc(g)}">${esc(g)}</button>`).join('');
+        fG.querySelectorAll('.fchip').forEach(b => b.addEventListener('click', () => toggleSet(F.genero, b.dataset.g, b)));
+      } else gG.style.display = 'none';
+
+      // Tallas
+      const tallas = [...new Set(DATA.productos.flatMap(tallasDe))];
+      const gT = document.getElementById('gTallas'), fT = document.getElementById('fTallas');
+      if (tallas.length) {
+        fT.innerHTML = tallas.map(t => `<button class="fchip" data-t="${esc(t)}">${esc(t)}</button>`).join('');
+        fT.querySelectorAll('.fchip').forEach(b => b.addEventListener('click', () => toggleSet(F.tallas, b.dataset.t, b)));
+      } else gT.style.display = 'none';
+
+      // Colores (hex únicos)
+      const colores = [...new Set(DATA.productos.flatMap(p => (p.colores||[]).map(hexDe)))];
+      const gC = document.getElementById('gColores'), fC = document.getElementById('fColores');
+      if (colores.length) {
+        fC.innerHTML = colores.map(hex => `<button class="sw" data-color="${hex}" style="background:${hex}" title="${hex}" aria-label="Color ${hex}"></button>`).join('');
+        fC.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => toggleSet(F.colores, b.dataset.color, b)));
+      } else gC.style.display = 'none';
+
+      // Flags
+      const fF = document.getElementById('fFlags');
+      const hayNuevo = DATA.productos.some(p => p.nuevo);
+      const hayOferta = DATA.productos.some(p => p.antes && p.antes > p.precio);
+      fF.innerHTML =
+        (hayNuevo ? `<button class="fchip cnuevo" data-flag="nuevo">✨ Novedades</button>` : '') +
+        (hayOferta ? `<button class="fchip" data-flag="oferta">🏷️ En oferta</button>` : '');
+      fF.querySelectorAll('.fchip').forEach(b => b.addEventListener('click', () => {
+        const on = b.classList.toggle('on');
+        if (b.dataset.flag === 'nuevo') F.nuevo = on; else F.oferta = on;
+        apply();
+      }));
+    }
+
+    function toggleSet(set, val, btn){
+      if (set.has(val)) set.delete(val); else set.add(val);
+      btn.classList.toggle('on', set.has(val));
+      apply();
+    }
+
+    function filtered(){
+      let items = DATA.productos.slice();
+      if (F.cat !== 'todos') items = items.filter(p => p.categoria === F.cat);
+      if (F.genero.size) items = items.filter(p => F.genero.has(p.genero));
+      if (F.tallas.size) items = items.filter(p => tallasDe(p).some(t => F.tallas.has(t)));
+      if (F.colores.size) items = items.filter(p => (p.colores||[]).map(hexDe).some(h => F.colores.has(h)));
+      if (F.pMin != null) items = items.filter(p => p.precio >= F.pMin);
+      if (F.pMax != null) items = items.filter(p => p.precio <= F.pMax);
+      if (F.nuevo) items = items.filter(p => p.nuevo);
+      if (F.oferta) items = items.filter(p => p.antes && p.antes > p.precio);
+      const q = norm(F.q);
+      if (q) items = items.filter(p => norm(p.codigo||'').includes(q) || norm(p.nombre||'').includes(q) || norm(p.desc||'').includes(q));
+      // orden
+      if (F.sort === 'precio-asc') items.sort((a,b) => a.precio - b.precio);
+      else if (F.sort === 'precio-desc') items.sort((a,b) => b.precio - a.precio);
+      else if (F.sort === 'nuevo') items.sort((a,b) => (b.nuevo?1:0) - (a.nuevo?1:0));
+      return items;
+    }
+
+    function card(p){
+      const save = (p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : '';
+      const nuevo = p.nuevo ? `<span class="badge-nuevo">✨ Nuevo</span>` : '';
+      const old = (p.antes && p.antes > p.precio) ? `<span class="p-old">S/ ${p.antes}</span>` : '';
+      const dots = (p.colores && p.colores.length)
+        ? `<div class="p-meta">${p.colores.map(c=>`<span class="dot" style="background:${hexDe(c)}" title="${esc(c)}"></span>`).join('')}</div>` : '';
+      const portada = fotosDe(p)[0] || '';
+      const el = document.createElement('article');
+      el.className = 'product';
+      el.innerHTML = `
+        <a class="ph" href="${prodUrl(p)}">${save}${nuevo}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></a>
+        <div class="p-body">
+          <a class="p-name" href="${prodUrl(p)}">${esc(p.nombre)}</a>
+          ${dots}
+          <div class="p-price"><span class="p-now">S/ ${p.precio}</span>${old}</div>
+          <a class="p-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, pedidoMsg(p))}">${WA_SVG}Pedir por WhatsApp</a>
+        </div>`;
+      return el;
+    }
+
+    let CURRENT = [];
+    function apply(){
+      CURRENT = filtered();
+      shown = 0; grid.innerHTML = '';
+      // contador
+      document.getElementById('count').innerHTML = `<b>${CURRENT.length}</b> producto${CURRENT.length===1?'':'s'}`;
+      // pills activos
+      renderPills();
+      // botón filtros (móvil) marca si hay filtros
+      const nFiltros = (F.cat!=='todos'?1:0) + F.genero.size + F.tallas.size + F.colores.size + (F.pMin!=null?1:0) + (F.pMax!=null?1:0) + (F.nuevo?1:0) + (F.oferta?1:0);
+      document.getElementById('openFiltros').classList.toggle('has-count', nFiltros>0);
+      document.getElementById('openFiltros').textContent = nFiltros>0 ? `⚙ Filtros (${nFiltros})` : '⚙ Filtros';
+
+      if (!CURRENT.length){
+        grid.innerHTML = `<div class="empty"><span class="es-ico">🔍</span><h3>Sin resultados</h3><p>Prueba quitando algún filtro o buscando otra cosa. 💛</p></div>`;
+        moreBtn.style.display = 'none';
+        return;
+      }
+      renderMore();
+    }
+
+    function renderMore(){
+      const slice = CURRENT.slice(shown, shown + PAGE);
+      slice.forEach(p => grid.appendChild(card(p)));
+      shown += slice.length;
+      moreBtn.style.display = (shown < CURRENT.length) ? '' : 'none';
+    }
+
+    function renderPills(){
+      const cont = document.getElementById('activePills');
+      const pills = [];
+      if (F.cat !== 'todos') {
+        const nom = (DATA.categorias.find(c=>c.id===F.cat)||{}).nombre || F.cat;
+        pills.push(pill('cat', 'Categoría: '+nom));
+      }
+      F.genero.forEach(g => pills.push(pill('genero:'+g, g)));
+      F.tallas.forEach(t => pills.push(pill('talla:'+t, 'Talla '+t)));
+      F.colores.forEach(c => pills.push(`<span class="pill"><span class="dot" style="background:${c};width:14px;height:14px"></span> <button data-clear="color:${c}" aria-label="Quitar color">✕</button></span>`));
+      if (F.pMin != null) pills.push(pill('pmin', 'Desde S/'+F.pMin));
+      if (F.pMax != null) pills.push(pill('pmax', 'Hasta S/'+F.pMax));
+      if (F.nuevo) pills.push(pill('nuevo', '✨ Novedades'));
+      if (F.oferta) pills.push(pill('oferta', '🏷️ En oferta'));
+      cont.innerHTML = pills.join('');
+      cont.querySelectorAll('[data-clear]').forEach(b => b.addEventListener('click', () => clearOne(b.dataset.clear)));
+    }
+    const pill = (key, label) => `<span class="pill">${esc(label)} <button data-clear="${key}" aria-label="Quitar filtro">✕</button></span>`;
+
+    function clearOne(key){
+      if (key === 'cat') { F.cat='todos'; document.querySelectorAll('#fCategorias .fchip').forEach(x=>x.classList.toggle('on', x.dataset.c==='todos')); }
+      else if (key === 'pmin') { F.pMin=null; document.getElementById('pMin').value=''; }
+      else if (key === 'pmax') { F.pMax=null; document.getElementById('pMax').value=''; }
+      else if (key === 'nuevo') { F.nuevo=false; document.querySelector('#fFlags [data-flag="nuevo"]')?.classList.remove('on'); }
+      else if (key === 'oferta') { F.oferta=false; document.querySelector('#fFlags [data-flag="oferta"]')?.classList.remove('on'); }
+      else if (key.startsWith('genero:')) { const v=key.slice(7); F.genero.delete(v); document.querySelector(`#fGenero [data-g="${CSS.escape(v)}"]`)?.classList.remove('on'); }
+      else if (key.startsWith('talla:')) { const v=key.slice(6); F.tallas.delete(v); document.querySelector(`#fTallas [data-t="${CSS.escape(v)}"]`)?.classList.remove('on'); }
+      else if (key.startsWith('color:')) { const v=key.slice(6); F.colores.delete(v); document.querySelector(`#fColores [data-color="${CSS.escape(v)}"]`)?.classList.remove('on'); }
+      apply();
+    }
+
+    function clearAll(){
+      F.cat='todos'; F.genero.clear(); F.tallas.clear(); F.colores.clear();
+      F.pMin=null; F.pMax=null; F.nuevo=false; F.oferta=false;
+      document.getElementById('pMin').value=''; document.getElementById('pMax').value='';
+      document.querySelectorAll('.fchip').forEach(x=>x.classList.remove('on'));
+      document.querySelectorAll('#fColores .sw').forEach(x=>x.classList.remove('on'));
+      document.querySelector('#fCategorias [data-c="todos"]').classList.add('on');
+      apply();
+    }
+  </script>
+</body>
+</html>

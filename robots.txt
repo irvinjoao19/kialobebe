@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kialobebe.com/sitemap.xml
