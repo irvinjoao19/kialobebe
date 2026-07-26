@@ -387,7 +387,7 @@
     const grid = document.getElementById('grid');
     const moreBtn = document.getElementById('more');
 
-    fetch('productos.json')
+    fetch('productos.json?v=' + Date.now())
       .then(r => r.json())
       .then(data => { DATA = data; init(); })
       .catch(() => { grid.innerHTML = '<div class="empty">No pudimos cargar los productos. Si abriste el archivo directamente, súbelo a tu hosting (GitHub Pages) y ábrelo desde ahí. 💛</div>'; });
