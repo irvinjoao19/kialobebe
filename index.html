@@ -377,7 +377,8 @@
       beige:"#d8c4a3", crema:"#efe6d3", marron:"#9c6b4a", "marrón":"#9c6b4a", cafe:"#9c6b4a", "café":"#9c6b4a",
       dorado:"#d4af37", plateado:"#c0c4c9", vino:"#7d2240"
     };
-    const hexDe = nombre => COLOR_MAP[String(nombre).trim().toLowerCase()] || "#d9d2c5";
+    const hexDe = c => { const s = String(c).trim(); return s.startsWith('#') ? s : (COLOR_MAP[s.toLowerCase()] || '#d9d2c5'); };
+    const colorLabel = c => String(c).trim().startsWith('#') ? '' : esc(c);
     const fotosDe = p => (Array.isArray(p.fotos) && p.fotos.length) ? p.fotos : (p.foto ? [p.foto] : []);
     const IMG = f => "assets/img/productos/" + f;
 
@@ -522,14 +523,15 @@
       const catNom = (DATA.categorias.find(c=>c.id===p.categoria)||{}).nombre || '';
       const save = (p.antes && p.antes > p.precio) ? `<span class="m-save">Ahorra S/ ${p.antes-p.precio}</span>` : '';
       const old = (p.antes && p.antes > p.precio) ? `<span class="m-old">S/ ${p.antes}</span>` : '';
+      const tallasStr = (p.tallas && p.tallas.length) ? p.tallas.join(' · ') : (p.talla || '');
       const specs = [
-        p.talla ? `<div class="m-spec"><span class="e">📏</span><span>${esc(p.talla)}</span></div>` : '',
+        tallasStr ? `<div class="m-spec"><span class="e">📏</span><span>${esc(tallasStr)}</span></div>` : '',
         p.material ? `<div class="m-spec"><span class="e">🧵</span><span>${esc(p.material)}</span></div>` : ''
       ].join('');
       const color0 = (p.colores && p.colores.length) ? p.colores[0] : null;
       const colores = (p.colores && p.colores.length) ? `
         <div class="m-colors"><div class="lbl">Elige color:</div><div class="m-swatches">
-          ${p.colores.map((c,i)=>`<button type="button" class="m-sw${i===0?' on':''}" data-color="${esc(c)}"><span class="dot" style="background:${hexDe(c)}"></span>${esc(c)}</button>`).join('')}
+          ${p.colores.map((c,i)=>`<button type="button" class="m-sw${i===0?' on':''}" data-color="${esc(c)}" title="${esc(c)}"><span class="dot" style="background:${hexDe(c)}"></span>${colorLabel(c)}</button>`).join('')}
         </div></div>` : '';
       mInfo.innerHTML = `
         ${p.nuevo ? `<span class="m-cat" style="background:var(--green)">✨ Nuevo</span> ` : ''}${catNom ? `<span class="m-cat">${esc(catNom)}</span>` : ''}
