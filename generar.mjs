@@ -99,7 +99,6 @@ function paginaProducto(p, tienda, categorias) {
     tallas.length ? `<div class="spec"><span class="e">📏</span><span><b>Tallas:</b> ${esc(tallas.join(' · '))}</span></div>` : '',
     p.material ? `<div class="spec"><span class="e">🧵</span><span><b>Material:</b> ${esc(p.material)}</span></div>` : '',
     p.genero ? `<div class="spec"><span class="e">👶</span><span><b>Para:</b> ${esc(p.genero)}</span></div>` : '',
-    p.codigo ? `<div class="spec"><span class="e">🏷️</span><span><b>Código:</b> ${esc(p.codigo)}</span></div>` : '',
   ].join('');
 
   const colores = (p.colores && p.colores.length) ? `
