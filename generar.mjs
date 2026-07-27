@@ -120,6 +120,8 @@ function paginaProducto(p, tienda, categorias) {
 <title>${esc(nombreLimpio)}${catNom ? ' · ' + esc(catNom) : ''} para bebé · Kialo bebé</title>
 <meta name="description" content="${esc(metaDesc)}" />
 <link rel="canonical" href="${url}" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
 <meta property="og:type" content="product" />
 <meta property="og:title" content="${esc(p.nombre)} · Kialo bebé" />
 <meta property="og:description" content="${esc(metaDesc)}" />
