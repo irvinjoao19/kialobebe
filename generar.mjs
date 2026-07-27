@@ -55,6 +55,7 @@ function paginaProducto(p, tienda, categorias) {
   const metaDesc = (p.detalle || p.desc || `${nombreLimpio} — Kialo bebé`).slice(0, 155);
   const wa = num => `https://wa.me/${num}?text=`;
   const agotado = !!p.agotado;
+  const esNuevo = p.createdAt && (Date.now() - new Date(p.createdAt).getTime()) < 21 * 864e5;
   const pedidoMsg = color => {
     const cod = p.codigo ? (color ? `${p.codigo}-${up(color)}` : p.codigo) : '';
     const colorTxt = color ? color.charAt(0).toUpperCase() + color.slice(1) : '';
@@ -212,13 +213,13 @@ function paginaProducto(p, tienda, categorias) {
     <div class="p-grid">
       <div class="p-gallery">${galeria}</div>
       <div class="p-info">
-        ${p.nuevo ? `<span class="p-cat nuevo">✨ Nuevo</span> ` : ''}${catNom ? `<span class="p-cat">${esc(catNom)}</span>` : ''}
+        ${agotado ? `<span class="p-cat agotado">🚫 Agotado</span> ` : esNuevo ? `<span class="p-cat nuevo">✨ Nuevo</span> ` : ''}${catNom ? `<span class="p-cat">${esc(catNom)}</span>` : ''}
         <h1 class="p-name">${esc(p.nombre)}</h1>
         <div class="p-price"><span class="p-now">S/ ${p.precio}</span>${hayOferta ? `<span class="p-old">S/ ${p.antes}</span><span class="p-save">Ahorra S/ ${p.antes - p.precio}</span>` : ''}</div>
         <p class="p-detalle">${esc(p.detalle || p.desc || '')}</p>
         ${specs ? `<div class="p-specs">${specs}</div>` : ''}
         ${colores}
-        <a id="pBuy" class="btn p-buy" target="_blank" rel="noopener" href="${wa(tienda.whatsapp)}${pedidoMsg(color0)}">${WA_SVG}Pedir por WhatsApp</a>
+        <a id="pBuy" class="btn p-buy${agotado ? ' consultar' : ''}" target="_blank" rel="noopener" href="${wa(tienda.whatsapp)}${agotado ? consultaMsg(null) : pedidoMsg(null)}">${WA_SVG}${agotado ? 'Consultar cuándo llega' : 'Pedir por WhatsApp'}</a>
         <a class="p-back" href="/productos/">← Seguir viendo el catálogo</a>
       </div>
     </div>
@@ -242,16 +243,21 @@ function paginaProducto(p, tienda, categorias) {
     // Color elegido → se agrega al mensaje de WhatsApp (CODIGO-COLOR)
     var buy = document.getElementById('pBuy');
     var WA = ${JSON.stringify(wa(tienda.whatsapp))};
-    var NOMBRE = ${JSON.stringify(p.nombre)}, CODIGO = ${JSON.stringify(p.codigo || '')}, PRECIO = ${JSON.stringify(String(p.precio))}, URL_PROD = ${JSON.stringify(url)};
+    var NOMBRE = ${JSON.stringify(p.nombre)}, CODIGO = ${JSON.stringify(p.codigo || '')}, PRECIO = ${JSON.stringify(String(p.precio))}, URL_PROD = ${JSON.stringify(url)}, AGOTADO = ${agotado};
     function up(s){ return String(s).normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,''); }
     document.querySelectorAll('.sw').forEach(function(b){
       b.addEventListener('click', function(){
         document.querySelectorAll('.sw').forEach(function(x){ x.classList.remove('on'); });
         b.classList.add('on');
         var color = b.dataset.color;
-        var cod = CODIGO ? (color ? CODIGO + '-' + up(color) : CODIGO) : '';
         var colorTxt = color ? color.charAt(0).toUpperCase() + color.slice(1) : '';
-        var msg = '¡Hola Kialo bebé! 💛 Quiero este:\\n' + (cod ? '*' + cod + '* — ' : '') + NOMBRE + (color ? ' (' + colorTxt + ')' : '') + ' · S/' + PRECIO + '\\n' + URL_PROD + '\\n¿Está disponible?';
+        var msg;
+        if (AGOTADO) {
+          msg = '¡Hola Kialo bebé! 💛 Vi que este producto está agotado:\\n' + NOMBRE + (color ? ' (' + colorTxt + ')' : '') + ' · S/' + PRECIO + '\\n' + URL_PROD + '\\n¿Cuándo vuelve a estar disponible? Me interesa 🙏';
+        } else {
+          var cod = CODIGO ? (color ? CODIGO + '-' + up(color) : CODIGO) : '';
+          msg = '¡Hola Kialo bebé! 💛 Quiero este:\\n' + (cod ? '*' + cod + '* — ' : '') + NOMBRE + (color ? ' (' + colorTxt + ')' : '') + ' · S/' + PRECIO + '\\n' + URL_PROD + '\\n¿Está disponible?';
+        }
         buy.href = WA + encodeURIComponent(msg);
       });
     });
