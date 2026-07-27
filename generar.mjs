@@ -54,10 +54,15 @@ function paginaProducto(p, tienda, categorias) {
   const nombreLimpio = String(p.nombre || '').trim();
   const metaDesc = (p.detalle || p.desc || `${nombreLimpio} — Kialo bebé`).slice(0, 155);
   const wa = num => `https://wa.me/${num}?text=`;
+  const agotado = !!p.agotado;
   const pedidoMsg = color => {
     const cod = p.codigo ? (color ? `${p.codigo}-${up(color)}` : p.codigo) : '';
     const colorTxt = color ? color.charAt(0).toUpperCase() + color.slice(1) : '';
     return encodeURIComponent(`¡Hola Kialo bebé! 💛 Quiero este:\n${cod ? `*${cod}* — ` : ''}${p.nombre}${color ? ` (${colorTxt})` : ''} · S/${p.precio}\n${url}\n¿Está disponible?`);
+  };
+  const consultaMsg = color => {
+    const colorTxt = color ? color.charAt(0).toUpperCase() + color.slice(1) : '';
+    return encodeURIComponent(`¡Hola Kialo bebé! 💛 Vi que este producto está agotado:\n${p.nombre}${color ? ` (${colorTxt})` : ''} · S/${p.precio}\n${url}\n¿Cuándo vuelve a estar disponible? Me interesa 🙏`);
   };
   const color0 = (p.colores && p.colores.length) ? p.colores[0] : null;
 
@@ -76,7 +81,7 @@ function paginaProducto(p, tienda, categorias) {
       url,
       priceCurrency: 'PEN',
       price: String(p.precio),
-      availability: 'https://schema.org/InStock',
+      availability: agotado ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
     },
   };
@@ -91,9 +96,9 @@ function paginaProducto(p, tienda, categorias) {
   };
 
   const galeria = fotos.length
-    ? `<div class="p-main"><img id="pMain" src="/assets/img/productos/${esc(fotos[0])}" alt="${esc(p.nombre)}" /></div>
+    ? `<div class="p-main${agotado ? ' agotado' : ''}"><img id="pMain" src="/assets/img/productos/${esc(fotos[0])}" alt="${esc(p.nombre)}" /></div>
        ${fotos.length > 1 ? `<div class="p-thumbs">${fotos.map((f, i) => `<button class="p-thumb${i === 0 ? ' on' : ''}" data-src="/assets/img/productos/${esc(f)}"><img src="/assets/img/productos/${esc(f)}" alt="${esc(p.nombre)} ${i + 1}" loading="lazy" /></button>`).join('')}</div>` : ''}`
-    : `<div class="p-main p-noimg">📷</div>`;
+    : `<div class="p-main${agotado ? ' agotado' : ''} p-noimg">📷</div>`;
 
   const specs = [
     tallas.length ? `<div class="spec"><span class="e">📏</span><span><b>Tallas:</b> ${esc(tallas.join(' · '))}</span></div>` : '',
@@ -141,6 +146,11 @@ function paginaProducto(p, tienda, categorias) {
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:"Fredoka",sans-serif;font-weight:600;border:none;border-radius:999px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
   .btn:active{transform:scale(.97)}
   .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3)}
+  .navbar{border-top:1px solid var(--line)}
+  .navbar-in{max-width:1120px;margin:0 auto;padding:0 18px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+  .navbar-in::-webkit-scrollbar{display:none}
+  .navbar a{white-space:nowrap;font-family:"Fredoka",sans-serif;font-weight:500;font-size:.95rem;color:var(--ink-soft);padding:12px;border-bottom:3px solid transparent}
+  .navbar a:hover{color:var(--coral);border-bottom-color:var(--coral)}
   .wrap{max-width:1120px;margin:0 auto;padding:0 18px}
   .crumb{font-size:.82rem;color:var(--ink-soft);font-weight:700;padding:18px 0 10px}
   .crumb a:hover{color:var(--coral)}
@@ -155,6 +165,9 @@ function paginaProducto(p, tienda, categorias) {
   .p-thumb img{width:100%;height:100%;object-fit:cover}
   .p-cat{display:inline-block;font-family:"Fredoka",sans-serif;font-weight:500;font-size:.78rem;color:#fff;background:var(--coral);padding:4px 13px;border-radius:999px;margin-bottom:12px}
   .p-cat.nuevo{background:var(--green)}
+  .p-cat.agotado{background:#6b7280}
+  .p-main.agotado img{filter:grayscale(.5);opacity:.75}
+  .p-buy.consultar{background:#6b7280;box-shadow:0 10px 24px rgba(107,114,128,.3)}
   .p-name{font-size:2rem;line-height:1.1}
   .p-price{display:flex;align-items:baseline;gap:11px;margin:16px 0}
   .p-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:2rem;color:var(--coral)}
@@ -185,6 +198,13 @@ function paginaProducto(p, tienda, categorias) {
       <a class="brand" href="/"><img src="/assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
       <a class="btn btn-wa" href="${wa(tienda.whatsapp)}${encodeURIComponent('¡Hola Kialo bebé! 💛 Quiero hacer una consulta')}" target="_blank" rel="noopener">${WA_SVG}WhatsApp</a>
     </div>
+    <nav class="navbar"><div class="navbar-in">
+      <a href="/productos/">🛍️ Todo</a>
+      <a href="/productos/?cat=novedades">✨ Novedades</a>
+      <a href="/productos/?oferta=1">🏷️ Ofertas</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/envios/">Envíos</a>
+    </div></nav>
   </div>
 
   <div class="wrap">
@@ -274,6 +294,8 @@ function main() {
   const urls = [
     { loc: `${SITE}/`, priority: '1.0' },
     { loc: `${SITE}/productos/`, priority: '0.9' },
+    { loc: `${SITE}/nosotros/`, priority: '0.5' },
+    { loc: `${SITE}/envios/`, priority: '0.5' },
     ...productos.filter(p => p.codigo).map(p => ({ loc: `${SITE}/productos/${slugify(p.codigo)}/`, priority: '0.8' })),
   ];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

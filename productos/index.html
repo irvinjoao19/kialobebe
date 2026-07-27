@@ -43,6 +43,11 @@
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:"Fredoka",sans-serif;font-weight:600;border:none;border-radius:999px;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;text-align:center}
   .btn:active{transform:scale(.97)}
   .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3);flex:none}
+  .navbar{border-top:1px solid var(--line)}
+  .navbar-in{max-width:1240px;margin:0 auto;padding:0 18px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+  .navbar-in::-webkit-scrollbar{display:none}
+  .navbar a{white-space:nowrap;font-family:"Fredoka",sans-serif;font-weight:500;font-size:.95rem;color:var(--ink-soft);padding:12px;border-bottom:3px solid transparent}
+  .navbar a:hover,.navbar a.on{color:var(--coral);border-bottom-color:var(--coral)}
 
   /* Breadcrumb + title */
   .wrap{max-width:1240px;margin:0 auto;padding:0 18px}
@@ -98,6 +103,10 @@
   .ph img{width:100%;height:100%;object-fit:cover}
   .save{position:absolute;top:11px;left:11px;background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
   .badge-nuevo{position:absolute;top:11px;right:11px;background:var(--green);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+  .badge-agotado{position:absolute;top:11px;left:11px;background:#6b7280;color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.14);z-index:2}
+  .ph.agotado img{filter:grayscale(.5);opacity:.72}
+  .p-buy.consultar{background:#6b7280;box-shadow:0 8px 18px rgba(107,114,128,.24)}
+  .p-buy.consultar:hover{box-shadow:0 10px 22px rgba(107,114,128,.34)}
   .p-body{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
   .p-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.06rem;line-height:1.2}
   .p-meta{font-size:.75rem;color:var(--ink-soft);font-weight:700;margin:7px 0 10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
@@ -156,6 +165,13 @@
       <div class="top-search"><input id="search" type="search" placeholder="Buscar producto o código…" autocomplete="off" aria-label="Buscar productos" /></div>
       <a class="btn btn-wa" data-wa="¡Hola Kialo bebé! 💛 Quiero hacer una consulta" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
     </div>
+    <nav class="navbar"><div class="navbar-in">
+      <a href="/productos/" class="on">🛍️ Todo</a>
+      <a href="/productos/?cat=novedades">✨ Novedades</a>
+      <a href="/productos/?oferta=1">🏷️ Ofertas</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/envios/">Envíos</a>
+    </div></nav>
   </div>
 
   <div class="wrap">
@@ -248,6 +264,7 @@
       const cod = p.codigo ? `*${p.codigo}* — ` : '';
       return `¡Hola Kialo bebé! 💛 Quiero este:\n${cod}${p.nombre} · S/${p.precio}\n${SITE}${prodUrl(p)}\n¿Está disponible?`;
     };
+    const consultaMsg = p => `¡Hola Kialo bebé! 💛 Vi que este producto está agotado:\n${p.nombre} · S/${p.precio}\n${SITE}${prodUrl(p)}\n¿Cuándo vuelve a estar disponible? Me interesa 🙏`;
 
     let DATA = null, shown = 0;
     const grid = document.getElementById('grid');
@@ -266,14 +283,22 @@
 
       buildFilters();
 
-      // Preseleccionar categoría desde ?cat= (viene de la home)
+      // Preseleccionar filtros desde la URL (vienen de la home / nav)
       const params = new URLSearchParams(location.search);
       const catParam = params.get('cat');
       if (catParam && (catParam === 'novedades' || DATA.categorias.some(c => c.id === catParam))) {
         if (catParam === 'novedades') F.nuevo = true; else F.cat = catParam;
       }
+      if (params.get('oferta') === '1') F.oferta = true;
       const qParam = params.get('q');
       if (qParam) { F.q = qParam; document.getElementById('search').value = qParam; }
+
+      // Reflejar en los chips lo que vino por URL
+      if (F.cat !== 'todos') {
+        document.querySelectorAll('#fCategorias .fchip').forEach(x => x.classList.toggle('on', x.dataset.c === F.cat));
+      }
+      if (F.nuevo) document.querySelector('#fFlags [data-flag="nuevo"]')?.classList.add('on');
+      if (F.oferta) document.querySelector('#fFlags [data-flag="oferta"]')?.classList.add('on');
 
       // listeners
       document.getElementById('search').addEventListener('input', e => { F.q = e.target.value; apply(); });
@@ -371,21 +396,26 @@
     }
 
     function card(p){
-      const save = (p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : '';
-      const nuevo = p.nuevo ? `<span class="badge-nuevo">✨ Nuevo</span>` : '';
+      const agotado = !!p.agotado;
+      const badges = agotado
+        ? `<span class="badge-agotado">Agotado</span>`
+        : `${(p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : ''}${p.nuevo ? `<span class="badge-nuevo">✨ Nuevo</span>` : ''}`;
       const old = (p.antes && p.antes > p.precio) ? `<span class="p-old">S/ ${p.antes}</span>` : '';
       const dots = (p.colores && p.colores.length)
         ? `<div class="p-meta">${p.colores.map(c=>`<span class="dot" style="background:${hexDe(c)}" title="${esc(c)}"></span>`).join('')}</div>` : '';
       const portada = fotosDe(p)[0] || '';
+      const boton = agotado
+        ? `<a class="p-buy consultar" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, consultaMsg(p))}">${WA_SVG}Consultar cuándo llega</a>`
+        : `<a class="p-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, pedidoMsg(p))}">${WA_SVG}Pedir por WhatsApp</a>`;
       const el = document.createElement('article');
       el.className = 'product';
       el.innerHTML = `
-        <a class="ph" href="${prodUrl(p)}">${save}${nuevo}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></a>
+        <a class="ph${agotado ? ' agotado' : ''}" href="${prodUrl(p)}">${badges}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></a>
         <div class="p-body">
           <a class="p-name" href="${prodUrl(p)}">${esc(p.nombre)}</a>
           ${dots}
           <div class="p-price"><span class="p-now">S/ ${p.precio}</span>${old}</div>
-          <a class="p-buy" target="_blank" rel="noopener" href="${wa(DATA.tienda.whatsapp, pedidoMsg(p))}">${WA_SVG}Pedir por WhatsApp</a>
+          ${boton}
         </div>`;
       return el;
     }

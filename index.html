@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kialo bebé · Ropa y accesorios para tu bebé</title>
-<meta name="description" content="Kialo bebé — ropa, zapatitos, accesorios y temáticas para consentir a tu bebé. Pide fácil por WhatsApp. Envíos a todo el Perú." />
+<title>Kialo bebé · Ropa, zapatitos y accesorios para tu bebé | Envíos a todo el Perú</title>
+<meta name="description" content="Tienda de ropa, zapatitos, accesorios y disfraces para bebés y niños. Novedades y ofertas todos los días. Pide fácil por WhatsApp con envíos a todo el Perú." />
+<link rel="canonical" href="https://kialobebe.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kialo bebé · Ropa y accesorios para tu bebé" />
+<meta property="og:description" content="Ropa, zapatitos, accesorios y disfraces tiernos para tu bebé. Envíos a todo el Perú." />
+<meta property="og:url" content="https://kialobebe.com/" />
+<meta property="og:image" content="https://kialobebe.com/assets/img/brand/hero.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
     --cream:#FBF6EC; --cream-2:#F3EADA; --card:#FFFFFF;
-    --ink:#3B4756; --ink-soft:#74808F;
+    --ink:#3B4756; --ink-soft:#74808F; --line:rgba(150,130,100,.16);
     --coral:#F0655A; --yellow:#F4C040; --green:#6CB94E;
     --teal:#3FB6A8; --blue:#3E8FD0; --purple:#9B6FC9;
-    --wa:#25D366; --radius:24px; --shadow:0 14px 34px rgba(120,100,70,.12);
+    --wa:#25D366; --radius:22px; --shadow:0 14px 34px rgba(120,100,70,.12);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -22,189 +28,105 @@
   h1,h2,h3,.ff{font-family:"Fredoka",sans-serif;font-weight:600;line-height:1.12}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
+  button{font-family:inherit}
   .wa-ico{width:18px;height:18px;fill:currentColor;flex:none}
+
   .promo{background:var(--coral);color:#fff;text-align:center;font-weight:700;font-size:.85rem;padding:8px 14px}
-  .top{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(150,130,100,.12)}
-  .top-in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .brand{display:flex;align-items:center;gap:10px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.18rem}
+
+  /* Header */
+  .top{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .top-in{max-width:1240px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.16rem;flex:none}
   .brand img{width:40px;height:40px;border-radius:11px}
-  .nav{display:flex;align-items:center;gap:22px}
-  .nav a{font-weight:700;font-size:.95rem;color:var(--ink-soft)}
-  .nav a:hover{color:var(--ink)}
+  .top-search{flex:1;position:relative;max-width:560px;margin:0 auto}
+  .top-search input{width:100%;font-family:"Nunito",sans-serif;font-weight:600;font-size:.98rem;padding:11px 16px 11px 42px;border:none;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(120,100,70,.10);outline:none}
+  .top-search input::placeholder{color:var(--ink-soft);font-weight:600}
+  .top-search::before{content:"🔍";position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:.95rem;opacity:.75;pointer-events:none}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:"Fredoka",sans-serif;font-weight:600;border:none;border-radius:999px;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;text-align:center}
   .btn:active{transform:scale(.97)}
-  .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3)}
-  @media(max-width:720px){.nav a:not(.btn){display:none}}
-  .hero{max-width:1120px;margin:0 auto;padding:40px 18px 18px;display:flex;align-items:center;gap:40px;flex-wrap:wrap}
-  .hero-text{flex:1 1 320px}
-  .hero-text h1{font-size:2.7rem;font-weight:700;letter-spacing:-.5px}
-  .hero-text h1 .b{color:var(--blue)} .hero-text h1 .c{color:var(--coral)}
-  .hero-text p{font-size:1.15rem;color:var(--ink-soft);font-weight:600;margin:14px 0 24px;max-width:42ch}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3);flex:none}
   .btn-lg{font-size:1.02rem;padding:14px 28px}
-  .btn-soft{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
-  .hero-img{flex:1 1 320px;position:relative;display:flex;justify-content:center}
-  .hero-img::before{content:"";position:absolute;width:86%;height:86%;top:7%;left:7%;background:radial-gradient(circle at 50% 40%, #FAD9A4, #F4C04055 60%, transparent 72%);border-radius:50%;z-index:0}
-  .hero-img img{position:relative;z-index:1;width:100%;max-width:420px;border-radius:30px;box-shadow:var(--shadow)}
-  .benefits{max-width:1120px;margin:14px auto 0;padding:0 18px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-  .benefit{flex:1 1 200px;max-width:260px;background:#fff;border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(120,100,70,.07)}
-  .benefit .e{font-size:1.5rem;flex:none}
-  .benefit b{font-family:"Fredoka",sans-serif;font-weight:600;font-size:.96rem;display:block}
-  .benefit span{font-size:.8rem;color:var(--ink-soft);font-weight:600}
-  .head{text-align:center;margin:54px auto 6px}
-  .head h2{font-size:1.9rem}
-  .head .line{width:74px;height:5px;border-radius:999px;margin:10px auto 0;background:linear-gradient(90deg,var(--coral),var(--yellow),var(--green),var(--blue),var(--purple))}
-  .head p{color:var(--ink-soft);font-weight:600;margin-top:10px}
-  .cats{max-width:1120px;margin:22px auto 0;padding:0 18px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-  .cat{flex:1 1 160px;max-width:230px;border:none;cursor:pointer;border-radius:20px;padding:24px 18px;color:#fff;text-align:left;font-family:"Fredoka",sans-serif;box-shadow:var(--shadow);transition:transform .15s ease}
+
+  /* Nav chips (scroll horizontal en móvil) */
+  .navbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:59px;z-index:39}
+  .navbar-in{max-width:1240px;margin:0 auto;padding:0 18px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+  .navbar-in::-webkit-scrollbar{display:none}
+  .navbar a{white-space:nowrap;font-family:"Fredoka",sans-serif;font-weight:500;font-size:.95rem;color:var(--ink-soft);padding:13px 12px;border-bottom:3px solid transparent;transition:color .13s ease}
+  .navbar a:hover,.navbar a.on{color:var(--coral);border-bottom-color:var(--coral)}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+
+  /* Categorías */
+  .cats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:26px 0 8px}
+  .cat{flex:1 1 150px;max-width:220px;border:none;cursor:pointer;border-radius:20px;padding:22px 18px;color:#fff;text-align:left;font-family:"Fredoka",sans-serif;box-shadow:var(--shadow);transition:transform .15s ease;display:block}
   .cat:hover{transform:translateY(-4px)}
-  .cat .e{font-size:1.9rem;display:block;margin-bottom:8px}
-  .cat b{font-size:1.12rem;font-weight:600;display:block}
-  .cat span{font-size:.82rem;font-weight:500;opacity:.92;font-family:"Nunito",sans-serif}
-  .cat:nth-child(4n+1){background:linear-gradient(135deg,#F0655A,#f3897f)}
-  .cat:nth-child(4n+2){background:linear-gradient(135deg,#3E8FD0,#5ba3dd)}
-  .cat:nth-child(4n+3){background:linear-gradient(135deg,#6CB94E,#86c86b)}
-  .cat:nth-child(4n+4){background:linear-gradient(135deg,#9B6FC9,#b08ed6)}
-  .catalog{max-width:1120px;margin:0 auto;padding:10px 18px 0}
-  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 24px}
-  .chip{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.92rem;padding:9px 18px;border-radius:999px;border:none;background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 4px 12px rgba(120,100,70,.07);transition:all .15s ease}
-  .chip.on{background:var(--ink);color:#fff}
-  .chip-nuevo.on{background:var(--green)}
-  .searchbar{max-width:520px;margin:24px auto 0;position:relative}
-  .searchbar input{width:100%;font-family:"Nunito",sans-serif;font-weight:600;font-size:1rem;padding:13px 18px 13px 46px;border:none;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(120,100,70,.10);outline:none}
-  .searchbar input::placeholder{color:var(--ink-soft);font-weight:600}
-  .searchbar::before{content:"🔍";position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.75;pointer-events:none}
-  .grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-  .product{flex:1 1 250px;max-width:300px;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease}
+  .cat .e{font-size:1.8rem;display:block;margin-bottom:6px}
+  .cat b{font-size:1.08rem;font-weight:600;display:block}
+  .cat span{font-size:.8rem;font-weight:500;opacity:.92;font-family:"Nunito",sans-serif}
+  .cat:nth-child(5n+1){background:linear-gradient(135deg,#F0655A,#f3897f)}
+  .cat:nth-child(5n+2){background:linear-gradient(135deg,#3E8FD0,#5ba3dd)}
+  .cat:nth-child(5n+3){background:linear-gradient(135deg,#6CB94E,#86c86b)}
+  .cat:nth-child(5n+4){background:linear-gradient(135deg,#9B6FC9,#b08ed6)}
+  .cat:nth-child(5n+5){background:linear-gradient(135deg,#F4C040,#f6cf6a)}
+
+  /* Secciones de productos */
+  .sec{margin:44px 0 0}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .sec-head h2{font-size:1.5rem}
+  .sec-head .vertodo{font-family:"Fredoka",sans-serif;font-weight:600;font-size:.92rem;color:var(--coral);flex:none}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+  .product{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease}
   .product:hover{transform:translateY(-5px)}
-  .ph{position:relative;aspect-ratio:4/5;background:var(--cream-2);overflow:hidden}
+  .ph{position:relative;aspect-ratio:4/5;background:var(--cream-2);overflow:hidden;display:block}
   .ph img{width:100%;height:100%;object-fit:cover}
-  .save{position:absolute;top:12px;left:12px;background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.74rem;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
-  .badge-nuevo{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.74rem;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
-  .p-body{padding:17px 17px 19px;display:flex;flex-direction:column;flex:1}
-  .p-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.18rem}
-  .p-desc{font-size:.86rem;color:var(--ink-soft);font-weight:600;margin:5px 0 12px;line-height:1.45}
-  .p-meta{font-size:.78rem;color:var(--ink-soft);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-  .dot{width:13px;height:13px;border-radius:50%;display:inline-block;border:1.5px solid #0001}
-  .p-price{display:flex;align-items:baseline;gap:9px;margin-top:auto;margin-bottom:14px}
-  .p-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.4rem;color:var(--coral)}
-  .p-old{font-size:.94rem;color:var(--ink-soft);text-decoration:line-through}
-  .p-buy{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.96rem;padding:12px;border-radius:15px;box-shadow:0 8px 18px rgba(37,211,102,.26);transition:transform .15s ease, box-shadow .15s ease}
+  .save{position:absolute;top:11px;left:11px;background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  .badge-nuevo{position:absolute;top:11px;right:11px;background:var(--green);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+  .badge-agotado{position:absolute;top:11px;left:11px;background:#6b7280;color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.72rem;padding:4px 11px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.14);z-index:2}
+  .ph.agotado img{filter:grayscale(.5);opacity:.72}
+  .p-buy.consultar{background:#6b7280;box-shadow:0 8px 18px rgba(107,114,128,.24)}
+  .p-buy.consultar:hover{box-shadow:0 10px 22px rgba(107,114,128,.34)}
+  .p-body{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
+  .p-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.06rem;line-height:1.2}
+  .p-meta{font-size:.75rem;color:var(--ink-soft);font-weight:700;margin:7px 0 10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block;border:1.5px solid #0001}
+  .p-price{display:flex;align-items:baseline;gap:8px;margin-top:auto;margin-bottom:12px}
+  .p-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.28rem;color:var(--coral)}
+  .p-old{font-size:.88rem;color:var(--ink-soft);text-decoration:line-through}
+  .p-buy{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.9rem;padding:11px;border-radius:14px;box-shadow:0 8px 18px rgba(37,211,102,.24);transition:transform .15s ease, box-shadow .15s ease}
   .p-buy:hover{box-shadow:0 10px 22px rgba(37,211,102,.36)}
   .p-buy:active{transform:scale(.97)}
-  .empty,.loading{width:100%;text-align:center;padding:46px 20px;color:var(--ink-soft);font-weight:700}
-  .more-wrap{text-align:center;margin:30px 0 0}
-  .btn-more{background:#fff;color:var(--ink);font-size:1rem;padding:13px 30px;box-shadow:var(--shadow)}
-  .live{max-width:1120px;margin:60px auto 0;padding:0 18px}
-  .live-in{background:linear-gradient(135deg,#2c2540,#473a63);border-radius:30px;padding:40px 32px;text-align:center;color:#fff;box-shadow:var(--shadow)}
-  .live-in .pulse{display:inline-flex;align-items:center;gap:8px;background:#ffffff22;padding:6px 14px;border-radius:999px;font-weight:800;font-size:.82rem;letter-spacing:.04em}
-  .live-in .pulse i{width:9px;height:9px;border-radius:50%;background:#ff4b5c;display:inline-block;animation:pp 1.4s infinite}
-  @keyframes pp{0%,100%{opacity:1}50%{opacity:.3}}
-  .live-in h2{font-size:1.8rem;margin:14px 0 8px}
-  .live-in p{color:#ffffffcc;font-weight:600;max-width:46ch;margin:0 auto 20px}
-  .btn-tt{background:#fff;color:#1a1626;font-size:1rem;padding:13px 28px}
-  footer{margin-top:56px;background:var(--cream-2);padding:42px 18px 28px;text-align:center}
-  .f-logo{width:64px;height:64px;border-radius:16px;margin:0 auto 12px}
-  .f-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.35rem}
-  .f-tag{color:var(--ink-soft);font-weight:600;margin:4px 0 18px}
-  .f-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .f-links a{display:inline-flex;align-items:center;gap:8px;background:#fff;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(120,100,70,.08)}
-  .copy{margin-top:22px;font-size:.8rem;color:var(--ink-soft)}
-  @media (max-width:560px){
-    .hero-text h1{font-size:2.1rem}
-    .product{flex-basis:44%;min-width:150px}
-    .p-body{padding:12px}.p-name{font-size:1rem}.p-now{font-size:1.18rem}.p-buy{font-size:.84rem;padding:10px}.p-desc{display:none}
-  }
-  /* tarjeta clickeable */
-  .ph,.p-name{cursor:pointer}
-  .ph::after{content:"Ver detalle";position:absolute;bottom:10px;right:10px;background:#000000a8;color:#fff;font-family:"Fredoka",sans-serif;font-size:.72rem;padding:5px 11px;border-radius:999px;opacity:0;transition:opacity .15s ease}
-  .product:hover .ph::after{opacity:1}
+  .loading,.empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--ink-soft);font-weight:700}
 
-  /* modal */
-  .modal{position:fixed;inset:0;z-index:90;display:none;align-items:flex-start;justify-content:center;padding:24px 14px;overflow-y:auto;background:rgba(40,33,30,.55);backdrop-filter:blur(3px)}
-  .modal.open{display:flex}
-  .m-box{background:#fff;border-radius:26px;max-width:880px;width:100%;margin:auto;box-shadow:0 30px 70px rgba(0,0,0,.3);overflow:hidden;position:relative;animation:pop .2s ease}
-  @keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:scale(1);opacity:1}}
-  .m-close{position:absolute;top:14px;right:14px;z-index:5;width:38px;height:38px;border:none;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.18);font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink)}
-  .m-grid{display:flex;flex-wrap:wrap}
-  .m-gallery{flex:1 1 360px;background:var(--cream-2);padding:18px}
-  .m-main{position:relative;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:#fff}
-  .m-main img{width:100%;height:100%;object-fit:cover}
-  .m-arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:none;border-radius:50%;background:#ffffffdd;box-shadow:0 4px 12px rgba(0,0,0,.16);cursor:pointer;font-size:1.2rem;color:var(--ink);display:flex;align-items:center;justify-content:center}
-  .m-arrow.prev{left:10px} .m-arrow.next{right:10px}
-  .m-thumbs{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
-  .m-thumb{width:62px;height:62px;border-radius:12px;overflow:hidden;cursor:pointer;border:3px solid transparent;flex:none;background:#fff}
-  .m-thumb.on{border-color:var(--coral)}
-  .m-thumb img{width:100%;height:100%;object-fit:cover}
-  .m-info{flex:1 1 340px;padding:30px 28px 26px;display:flex;flex-direction:column}
-  .m-cat{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.78rem;color:#fff;background:var(--coral);align-self:flex-start;padding:4px 13px;border-radius:999px;margin-bottom:12px}
-  .m-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.7rem;line-height:1.1}
-  .m-price{display:flex;align-items:baseline;gap:10px;margin:14px 0}
-  .m-now{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.7rem;color:var(--coral)}
-  .m-old{font-size:1.05rem;color:var(--ink-soft);text-decoration:line-through}
-  .m-save{background:var(--yellow);color:#5a4a12;font-family:"Fredoka",sans-serif;font-weight:600;font-size:.78rem;padding:4px 12px;border-radius:999px}
-  .m-detalle{color:var(--ink);font-weight:600;line-height:1.6;margin-bottom:16px}
-  .m-specs{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-  .m-spec{display:flex;gap:9px;align-items:flex-start;font-size:.9rem;color:var(--ink-soft);font-weight:700}
-  .m-spec .e{flex:none}
-  .m-colors{margin-bottom:20px}
-  .m-colors .lbl{font-family:"Fredoka",sans-serif;font-weight:500;font-size:.86rem;color:var(--ink-soft);margin-bottom:8px}
-  .m-swatches{display:flex;gap:12px;flex-wrap:wrap}
-  .m-sw{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.72rem;color:var(--ink-soft);font-weight:700;background:none;border:none;cursor:pointer;font-family:inherit;padding:2px}
-  .m-sw .dot{width:30px;height:30px;border:2px solid #0001;transition:box-shadow .15s ease,border-color .15s ease}
-  .m-sw.on{color:var(--ink)}
-  .m-sw.on .dot{border-color:var(--coral);box-shadow:0 0 0 3px #F0655A33}
-  .m-buy{margin-top:auto}
-  @media (max-width:560px){
-    .m-name{font-size:1.4rem}.m-info{padding:22px 20px}
+  /* Franja CTA */
+  .cta-all{margin:40px 0 0;background:linear-gradient(135deg,#F0655A,#f3897f);border-radius:26px;padding:36px 26px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+  .cta-all h2{font-size:1.7rem;margin-bottom:6px}
+  .cta-all p{font-weight:600;opacity:.95;margin-bottom:18px}
+  .cta-all .btn{background:#fff;color:var(--coral)}
+
+  /* Beneficios */
+  .benefits{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:40px 0 0}
+  .benefit{flex:1 1 200px;max-width:270px;background:#fff;border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(120,100,70,.07)}
+  .benefit .e{font-size:1.5rem;flex:none}
+  .benefit b{font-family:"Fredoka",sans-serif;font-weight:600;font-size:.94rem;display:block}
+  .benefit span{font-size:.79rem;color:var(--ink-soft);font-weight:600}
+
+  footer{margin-top:52px;background:var(--cream-2);padding:42px 18px 28px;text-align:center}
+  .f-logo{width:60px;height:60px;border-radius:15px;margin:0 auto 12px}
+  .f-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.3rem}
+  .f-tag{color:var(--ink-soft);font-weight:600;margin:4px 0 18px}
+  .f-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .f-links a{display:inline-flex;align-items:center;gap:7px;background:#fff;font-weight:700;font-size:.88rem;padding:9px 16px;border-radius:999px;box-shadow:0 6px 16px rgba(120,100,70,.08)}
+  .copy{margin-top:20px;font-size:.8rem;color:var(--ink-soft)}
+
+  @media (max-width:640px){
+    .top-search{order:3;flex-basis:100%;max-width:none;margin-top:2px}
+    .top-in{flex-wrap:wrap;padding-bottom:8px}
+    .navbar{top:0;position:static}
+    .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .p-body{padding:11px}.p-name{font-size:.94rem}.p-now{font-size:1.1rem}.p-buy{font-size:.82rem;padding:10px}
+    .sec-head h2{font-size:1.3rem}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none;animation:none}}
-
-  /* ── Quiénes somos ── */
-  .nosotros{max-width:1120px;margin:54px auto 0;padding:0 18px}
-  .nosotros-in{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px}
-  .nosotros-card{flex:1 1 220px;max-width:260px;background:#fff;border-radius:20px;padding:28px 22px;text-align:center;box-shadow:0 8px 20px rgba(120,100,70,.07)}
-  .nosotros-card .e{font-size:2rem;display:block;margin-bottom:10px}
-  .nosotros-card b{font-family:"Fredoka",sans-serif;font-size:1.05rem;display:block;margin-bottom:8px}
-  .nosotros-card p{font-size:.87rem;color:var(--ink-soft);font-weight:600;line-height:1.5}
-
-  /* ── Testimonios ── */
-  .testimonios{max-width:1120px;margin:54px auto 0;padding:0 18px}
-  .test-grid{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px}
-  .test-grid img{width:260px;border-radius:18px;box-shadow:var(--shadow);loading:lazy}
-  .test-placeholder{width:100%;padding:48px 20px;text-align:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
-  .test-placeholder .e{font-size:2.5rem;display:block;margin-bottom:12px}
-  .test-placeholder p{color:var(--ink-soft);font-weight:600}
-
-  /* ── Envíos ── */
-  .envios{max-width:1120px;margin:54px auto 0;padding:0 18px}
-  .envios-in{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:28px}
-  .envio-card{flex:1 1 240px;max-width:320px;background:#fff;border-radius:22px;padding:32px 26px;text-align:center;box-shadow:var(--shadow)}
-  .envio-card.destacado{border:2.5px solid var(--green)}
-  .envio-card .e{font-size:2.2rem;display:block;margin-bottom:12px}
-  .envio-card b{font-family:"Fredoka",sans-serif;font-size:1.15rem;display:block;margin-bottom:6px}
-  .envio-card .dias{font-family:"Fredoka",sans-serif;color:var(--coral);font-size:.95rem;font-weight:600;margin-bottom:10px}
-  .envio-card p{font-size:.87rem;color:var(--ink-soft);font-weight:600;line-height:1.55;margin:0}
-  .envio-card .btn{margin-top:18px;font-size:.85rem;padding:10px 18px}
-
-  /* ── Nuestro camino TikTok ── */
-  .tk-journey{max-width:1120px;margin:54px auto 0;padding:0 18px}
-  .tk-grid{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px}
-  .tk-card{position:relative;width:200px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:block}
-  .tk-card img{width:100%;aspect-ratio:9/16;object-fit:cover}
-  .tk-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
-  .tk-placeholder{width:100%;padding:48px 20px;text-align:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
-  .tk-placeholder .e{font-size:2.5rem;display:block;margin-bottom:12px}
-  .tk-placeholder p{color:var(--ink-soft);font-weight:600;margin-bottom:20px}
-  .tk-embed-wrap{width:325px;max-width:100%;flex-shrink:0}
-  .tk-embed-wrap .tiktok-embed{margin:0!important}
-
-  /* ── Empty state catálogo ── */
-  .empty-state{width:100%;padding:60px 20px;text-align:center;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
-  .empty-state .es-ico{font-size:3.5rem;display:block;margin-bottom:16px}
-  .empty-state h3{font-family:"Fredoka",sans-serif;font-size:1.7rem;margin-bottom:10px}
-  .empty-state p{color:var(--ink-soft);font-weight:600;max-width:46ch;margin:0 auto 24px}
-  @media(max-width:560px){.envio-card{padding:24px 18px}.nosotros-card{padding:22px 16px}}
 </style>
 </head>
 <body>
@@ -212,131 +134,71 @@
 
   <div class="top">
     <div class="top-in">
-      <a class="brand" href="#"><img src="assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
-      <nav class="nav">
-        <a href="#nosotros">Nosotros</a>
-        <a href="#envios">Envíos</a>
-        <a href="#categorias">Categorías</a>
-        <a href="/productos/">Productos</a>
-        <a href="#tiktok">En vivo</a>
-        <a class="btn btn-wa" data-wa="¡Hola Kialo bebé! 💛 Quiero hacer una consulta"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
-      </nav>
+      <a class="brand" href="/"><img src="/assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
+      <form class="top-search" id="searchForm" role="search">
+        <input id="search" type="search" placeholder="Buscar producto o código…" autocomplete="off" aria-label="Buscar productos" />
+      </form>
+      <a class="btn btn-wa" data-wa="¡Hola Kialo bebé! 💛 Quiero hacer una consulta" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
     </div>
+    <nav class="navbar"><div class="navbar-in">
+      <a href="/productos/">🛍️ Todo</a>
+      <a href="/productos/?cat=novedades">✨ Novedades</a>
+      <a href="/productos/?oferta=1">🏷️ Ofertas</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/envios/">Envíos</a>
+      <a href="#tiktok">En vivo 🔴</a>
+    </div></nav>
   </div>
 
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Ternura para <span class="c">tu</span> <span class="b">bebé</span> 💛</h1>
-      <p>Ropa, zapatitos, accesorios y temáticas tiernos y de buena calidad. Pídelos fácil por WhatsApp y te atendemos al toque.</p>
-      <div class="hero-cta">
-        <a class="btn btn-lg btn-soft" href="/productos/">Ver productos</a>
-        <a class="btn btn-lg btn-wa" data-wa="¡Hola Kialo bebé! 💛" style="color:#fff"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Escríbenos</a>
-      </div>
-    </div>
-    <div class="hero-img"><img src="assets/img/brand/hero.jpg" alt="Bebé con boina de Kialo bebé" /></div>
-  </header>
+  <main class="wrap">
+    <!-- ✨ Novedades -->
+    <section class="sec" id="secNovedades" style="display:none;margin-top:28px">
+      <div class="sec-head"><h2>✨ Novedades</h2><a class="vertodo" href="/productos/?cat=novedades">Ver todas →</a></div>
+      <div class="grid" id="gridNovedades"></div>
+    </section>
 
-  <section class="benefits">
-    <div class="benefit"><span class="e">📦</span><div><b>Envíos a todo el Perú</b><span>Coordinamos por WhatsApp</span></div></div>
-    <div class="benefit"><span class="e">💬</span><div><b>Atención al toque</b><span>Te respondemos rapidito</span></div></div>
-    <div class="benefit"><span class="e">📸</span><div><b>Fotos reales</b><span>Lo que ves es lo que llega</span></div></div>
-    <div class="benefit"><span class="e">🔴</span><div><b>En vivo en TikTok</b><span>Te mostramos todo en directo</span></div></div>
-  </section>
+    <!-- Más productos -->
+    <section class="sec" id="secMas" style="margin-top:28px">
+      <div class="sec-head"><h2>Nuestros productos</h2><a class="vertodo" href="/productos/">Ver todo →</a></div>
+      <div class="grid" id="gridMas"><div class="loading">Cargando productos… 💛</div></div>
+    </section>
 
-  <!-- ── Quiénes somos ── -->
-  <section class="nosotros" id="nosotros">
-    <div class="head"><h2>Quiénes somos</h2><div class="line"></div></div>
-    <div class="nosotros-in">
-      <div class="nosotros-card"><span class="e">👶</span><b>Tienda para bebés y niños</b><p>Somos una tienda familiar especializada en ropa, accesorios, zapatillas y disfraces para los más pequeños de la casa.</p></div>
-      <div class="nosotros-card"><span class="e">✨</span><b>Productos seleccionados</b><p>Elegimos cada producto pensando en la calidad, la ternura y el precio justo para que consentir a tu bebé sea fácil.</p></div>
-      <div class="nosotros-card"><span class="e">💬</span><b>Atención personalizada</b><p>Hablamos contigo directamente por WhatsApp. Resolvemos dudas de tallas, colores y disponibilidad al instante.</p></div>
-      <div class="nosotros-card"><span class="e">📱</span><b>En vivo por TikTok</b><p>Mostramos todos nuestros productos en lives de TikTok para que los veas en detalle antes de pedir.</p></div>
-    </div>
-  </section>
+    <!-- CTA catálogo -->
+    <section class="cta-all">
+      <h2>Explora todo el catálogo 🧸</h2>
+      <p>Filtra por categoría, talla, color y precio</p>
+      <a class="btn btn-lg" href="/productos/">Ver todo el catálogo →</a>
+    </section>
 
-  <!-- ── Testimonios ── -->
-  <section class="testimonios" id="testimonios">
-    <div class="head"><h2>Lo que dicen nuestras mamitas</h2><div class="line"></div><p>Mensajes reales de quienes ya confían en nosotros 💛</p></div>
-    <div class="test-grid">
-      <div class="test-placeholder"><span class="e">💬</span><p>¡Próximamente compartiremos los mensajes de nuestras mamitas!</p></div>
-    </div>
-  </section>
-
-  <div class="head" id="categorias"><h2>Explora por categoría</h2><div class="line"></div></div>
-  <section class="cats" id="cats"></section>
-
-  <div class="head" id="productos">
-    <h2>Destacados 💛</h2><div class="line"></div>
-    <p>Un vistazo a nuestra colección. ¡Míralos todos en el catálogo!</p>
-  </div>
-
-  <main class="catalog">
-    <div class="grid" id="grid"><div class="loading">Cargando… 💛</div></div>
-    <div class="more-wrap"><a class="btn btn-lg" href="/productos/" style="background:var(--coral);color:#fff;box-shadow:0 10px 24px rgba(240,101,90,.3)">Ver todo el catálogo →</a></div>
+    <!-- Beneficios -->
+    <section class="benefits">
+      <div class="benefit"><span class="e">📦</span><div><b>Envíos a todo el Perú</b><span>Coordinamos por WhatsApp</span></div></div>
+      <div class="benefit"><span class="e">💬</span><div><b>Atención al toque</b><span>Te respondemos rapidito</span></div></div>
+      <div class="benefit"><span class="e">📸</span><div><b>Fotos reales</b><span>Lo que ves es lo que llega</span></div></div>
+      <div class="benefit"><span class="e">🔴</span><div><b>En vivo en TikTok</b><span>Te mostramos todo en directo</span></div></div>
+    </section>
   </main>
 
-  <!-- ── Envíos y entregas ── -->
-  <section class="envios" id="envios">
-    <div class="head"><h2>Envíos y entregas</h2><div class="line"></div><p>Llevamos tu pedido a todo el Perú</p></div>
-    <div class="envios-in">
-      <div class="envio-card">
-        <span class="e">📦</span>
-        <b>Agencia Shalom</b>
-        <p class="dias">Martes · Jueves · Sábados</p>
-        <p>Enviamos a todo el Perú por la agencia Shalom. Los pedidos realizados antes del día de envío salen en la siguiente fecha disponible.</p>
-      </div>
-      <div class="envio-card destacado">
-        <span class="e">🛵</span>
-        <b>Motorizado</b>
-        <p class="dias">Cono Norte de Lima</p>
-        <p>Hacemos delivery por motorizado a toda la zona del cono norte. Coordina el costo y horario directamente por WhatsApp.</p>
-        <a class="btn btn-wa" href="https://wa.me/51955105631?text=Hola%2C+quisiera+coordinar+un+motorizado+para+mi+pedido+%F0%9F%9B%B5" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Coordinar envío</a>
-      </div>
-      <div class="envio-card">
-        <span class="e">⏰</span>
-        <b>Tiempos de entrega</b>
-        <p class="dias">1 a 3 días hábiles</p>
-        <p>Una vez despachado tu pedido, el tiempo de tránsito depende de tu ciudad. Te enviamos el código de seguimiento.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Nuestro camino en TikTok ── -->
-  <section class="tk-journey" id="nuestro-camino">
-    <div class="head"><h2>Nuestro camino</h2><div class="line"></div><p>Desde nuestros primeros lives hasta hoy 🎵</p></div>
-    <div class="tk-grid">
-      <div class="tk-embed-wrap"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kialo.bebe/video/7526696702972022021" data-video-id="7526696702972022021" data-autoplay="0" style="max-width:605px;min-width:325px;"><section></section></blockquote></div>
-    </div>
-    <script async src="https://www.tiktok.com/embed.js"></script>
-  </section>
-
-  <section class="live" id="tiktok">
-    <div class="live-in">
-      <span class="pulse"><i></i> EN VIVO</span>
-      <h2>Míranos en vivo en TikTok 🎵</h2>
-      <p>Hacemos lives mostrando los productos en directo y subimos las novedades primero. ¡Síguenos para no perderte las ofertas!</p>
-      <a class="btn btn-lg btn-tt" data-tiktok target="_blank" rel="noopener">Ver nuestro TikTok →</a>
-    </div>
-  </section>
-
-  <footer>
-    <img class="f-logo" src="assets/img/brand/logo.jpg" alt="Kialo bebé" />
+  <footer id="tiktok">
+    <img class="f-logo" src="/assets/img/brand/logo.jpg" alt="Kialo bebé" />
     <div class="f-name">Kialo bebé</div>
     <p class="f-tag">Ternura para los más pequeñitos 🌈</p>
     <div class="f-links">
-      <a data-wa="¡Hola Kialo bebé! 💛"><svg class="wa-ico" viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg><span id="wa-num">WhatsApp</span></a>
+      <a data-wa="¡Hola Kialo bebé! 💛" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>WhatsApp</a>
       <a data-tiktok target="_blank" rel="noopener">🎵 TikTok</a>
-      <a data-instagram target="_blank" rel="noopener">📷 Instagram</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/envios/">Envíos</a>
     </div>
     <p class="copy">© 2026 Kialo bebé · Hecho con 💛 en Perú</p>
   </footer>
 
   <script>
+    const NOVEDADES_MAX = 8, OFERTAS_MAX = 8, MAS_MAX = 8;
     const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
     const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
     const slugify = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    const SITE = 'https://kialobebe.com';
     const WA_SVG = '<svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>';
-
     const COLOR_MAP = {
       blanco:"#ffffff", negro:"#2b2b2b", gris:"#9aa0a6", plomo:"#9aa0a6",
       rojo:"#F0655A", coral:"#F0655A", rosa:"#f7a8c4", rosado:"#f7a8c4", fucsia:"#e85a9b",
@@ -348,61 +210,71 @@
     };
     const hexDe = c => { const s = String(c).trim(); return s.startsWith('#') ? s : (COLOR_MAP[s.toLowerCase()] || '#d9d2c5'); };
     const fotosDe = p => (Array.isArray(p.fotos) && p.fotos.length) ? p.fotos : (p.foto ? [p.foto] : []);
-    const IMG = f => "assets/img/productos/" + f;
-    const SITE = 'https://kialobebe.com';
+    const IMG = f => "/assets/img/productos/" + f;
     const prodUrl = p => `/productos/${slugify(p.codigo)}/`;
     const pedidoMsg = p => `¡Hola Kialo bebé! 💛 Quiero este:\n${p.codigo ? `*${p.codigo}* — ` : ''}${p.nombre} · S/${p.precio}\n${SITE}${prodUrl(p)}\n¿Está disponible?`;
+    const consultaMsg = p => `¡Hola Kialo bebé! 💛 Vi que este producto está agotado:\n${p.nombre} · S/${p.precio}\n${SITE}${prodUrl(p)}\n¿Cuándo vuelve a estar disponible? Me interesa 🙏`;
 
-    const DESTACADOS = 8; // cuántos productos mostrar en la home
-    const grid = document.getElementById('grid');
+    // Buscar → catálogo con ?q=
+    document.getElementById('searchForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const q = document.getElementById('search').value.trim();
+      location.href = '/productos/' + (q ? '?q=' + encodeURIComponent(q) : '');
+    });
 
-    fetch('productos.json?v=' + Date.now())
+    fetch('/productos.json?v=' + Date.now())
       .then(r => r.json())
       .then(data => init(data))
-      .catch(() => { grid.innerHTML = '<div class="empty">No pudimos cargar los productos. 💛</div>'; });
+      .catch(() => { document.getElementById('gridMas').innerHTML = '<div class="empty">No pudimos cargar los productos. 💛</div>'; });
 
     function init(DATA){
       const num = DATA.tienda.whatsapp;
       document.querySelectorAll('[data-wa]').forEach(a => a.href = wa(num, a.dataset.wa));
       document.querySelectorAll('[data-tiktok]').forEach(a => a.href = DATA.tienda.tiktok || '#');
-      document.querySelectorAll('[data-instagram]').forEach(a => a.href = DATA.tienda.instagram || '#');
 
-      // Categorías (tiles) → llevan al catálogo filtrado
-      const cats = document.getElementById('cats');
-      cats.innerHTML = DATA.categorias.map(c =>
-        `<a class="cat" href="/productos/?cat=${encodeURIComponent(c.id)}"><span class="e">${c.emoji||'🧸'}</span><b>${esc(c.nombre)}</b><span>${esc(c.desc||'')}</span></a>`
-      ).join('');
+      const prods = DATA.productos || [];
+      const nuevos = prods.filter(p => p.nuevo);
 
-      // Destacados: novedades primero, luego el resto, hasta DESTACADOS
-      const nuevos = DATA.productos.filter(p => p.nuevo);
-      const resto = DATA.productos.filter(p => !p.nuevo);
-      const featured = [...nuevos, ...resto].slice(0, DESTACADOS);
+      // ✨ Novedades
+      if (nuevos.length) fillSection('secNovedades','gridNovedades', nuevos.slice(0, NOVEDADES_MAX), num);
 
-      if (!featured.length){
-        grid.innerHTML = '<div class="empty">¡Pronto agregaremos productos! 💛 Escríbenos por WhatsApp.</div>';
-        return;
-      }
-      grid.innerHTML = '';
-      featured.forEach(p => grid.appendChild(card(p, num)));
+      // Nuestros productos: los que no son novedad, para no repetir; si no hay, cualquiera
+      const resto = prods.filter(p => !p.nuevo);
+      const mas = (resto.length ? resto : prods).slice(0, MAS_MAX);
+      const gm = document.getElementById('gridMas');
+      gm.innerHTML = '';
+      if (!mas.length) gm.innerHTML = '<div class="empty">¡Pronto agregaremos productos! 💛 Escríbenos por WhatsApp.</div>';
+      else mas.forEach(p => gm.appendChild(card(p, num)));
+    }
+
+    function fillSection(secId, gridId, items, num){
+      document.getElementById(secId).style.display = '';
+      const g = document.getElementById(gridId);
+      g.innerHTML = '';
+      items.forEach(p => g.appendChild(card(p, num)));
     }
 
     function card(p, num){
-      const save = (p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : '';
-      const nuevo = p.nuevo ? `<span class="badge-nuevo">✨ Nuevo</span>` : '';
+      const agotado = !!p.agotado;
+      const badges = agotado
+        ? `<span class="badge-agotado">Agotado</span>`
+        : `${(p.antes && p.antes > p.precio) ? `<span class="save">Ahorra S/ ${p.antes - p.precio}</span>` : ''}${p.nuevo ? `<span class="badge-nuevo">✨ Nuevo</span>` : ''}`;
       const old = (p.antes && p.antes > p.precio) ? `<span class="p-old">S/ ${p.antes}</span>` : '';
       const dots = (p.colores && p.colores.length)
         ? `<div class="p-meta">${p.colores.map(c=>`<span class="dot" style="background:${hexDe(c)}" title="${esc(c)}"></span>`).join('')}</div>` : '';
       const portada = fotosDe(p)[0] || '';
+      const boton = agotado
+        ? `<a class="p-buy consultar" target="_blank" rel="noopener" href="${wa(num, consultaMsg(p))}">${WA_SVG}Consultar cuándo llega</a>`
+        : `<a class="p-buy" target="_blank" rel="noopener" href="${wa(num, pedidoMsg(p))}">${WA_SVG}Pedir por WhatsApp</a>`;
       const el = document.createElement('article');
       el.className = 'product';
       el.innerHTML = `
-        <a class="ph" href="${prodUrl(p)}">${save}${nuevo}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></a>
+        <a class="ph${agotado ? ' agotado' : ''}" href="${prodUrl(p)}">${badges}<img src="${IMG(esc(portada))}" alt="${esc(p.nombre)}" loading="lazy" /></a>
         <div class="p-body">
           <a class="p-name" href="${prodUrl(p)}">${esc(p.nombre)}</a>
-          <div class="p-desc">${esc(p.desc||'')}</div>
           ${dots}
           <div class="p-price"><span class="p-now">S/ ${p.precio}</span>${old}</div>
-          <a class="p-buy" target="_blank" rel="noopener" href="${wa(num, pedidoMsg(p))}">${WA_SVG}Pedir por WhatsApp</a>
+          ${boton}
         </div>`;
       return el;
     }
