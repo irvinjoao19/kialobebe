@@ -1,98 +1,405 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nosotros · Kialo bebé — Tienda de ropa y accesorios para bebés</title>
-<meta name="description" content="Conoce Kialo bebé: tienda familiar de ropa, accesorios, zapatillas y disfraces para bebés y niños. Productos seleccionados, atención personalizada por WhatsApp y lives en TikTok." />
-<link rel="canonical" href="https://kialobebe.com/nosotros/" />
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/favicon-32.png" />
-<link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
-<meta property="og:title" content="Nosotros · Kialo bebé" />
-<meta property="og:description" content="Tienda familiar de ropa y accesorios tiernos para tu bebé. Atención al toque por WhatsApp." />
-<meta property="og:url" content="https://kialobebe.com/nosotros/" />
-<meta property="og:image" content="https://kialobebe.com/assets/img/brand/hero.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<style>
-  :root{--cream:#FBF6EC;--cream-2:#F3EADA;--card:#fff;--ink:#3B4756;--ink-soft:#74808F;--line:rgba(150,130,100,.16);--coral:#F0655A;--yellow:#F4C040;--green:#6CB94E;--blue:#3E8FD0;--purple:#9B6FC9;--wa:#25D366;--radius:22px;--shadow:0 14px 34px rgba(120,100,70,.12)}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Nunito",sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:"Fredoka",sans-serif;font-weight:600;line-height:1.14}
-  img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
-  .wa-ico{width:18px;height:18px;fill:currentColor;flex:none}
-  .promo{background:var(--coral);color:#fff;text-align:center;font-weight:700;font-size:.85rem;padding:8px 14px}
-  .top{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .top-in{max-width:1240px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .brand{display:flex;align-items:center;gap:10px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.16rem}
-  .brand img{width:40px;height:40px;border-radius:11px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:"Fredoka",sans-serif;font-weight:600;border:none;border-radius:999px;cursor:pointer;transition:transform .15s ease}
-  .btn:active{transform:scale(.97)}
-  .btn-wa{background:var(--wa);color:#fff;font-size:.9rem;padding:9px 16px;box-shadow:0 8px 18px rgba(37,211,102,.3)}
-  .navbar{background:#fff;border-bottom:1px solid var(--line)}
-  .navbar-in{max-width:1240px;margin:0 auto;padding:0 18px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-  .navbar-in::-webkit-scrollbar{display:none}
-  .navbar a{white-space:nowrap;font-family:"Fredoka",sans-serif;font-weight:500;font-size:.95rem;color:var(--ink-soft);padding:13px 12px;border-bottom:3px solid transparent}
-  .navbar a:hover,.navbar a.on{color:var(--coral);border-bottom-color:var(--coral)}
-  .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-  .crumb{font-size:.82rem;color:var(--ink-soft);font-weight:700;padding:18px 0 4px}
-  .crumb a:hover{color:var(--coral)}
-  .page-head{text-align:center;margin:12px 0 6px}
-  .page-head h1{font-size:2rem}
-  .page-head .line{width:74px;height:5px;border-radius:999px;margin:12px auto 0;background:linear-gradient(90deg,var(--coral),var(--yellow),var(--green),var(--blue),var(--purple))}
-  .page-head p{color:var(--ink-soft);font-weight:600;margin-top:12px;max-width:52ch;margin-left:auto;margin-right:auto}
-  .cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:30px}
-  .card{flex:1 1 220px;max-width:280px;background:#fff;border-radius:20px;padding:28px 22px;text-align:center;box-shadow:0 8px 20px rgba(120,100,70,.07)}
-  .card .e{font-size:2rem;display:block;margin-bottom:12px}
-  .card b{font-family:"Fredoka",sans-serif;font-size:1.05rem;display:block;margin-bottom:8px}
-  .card p{font-size:.88rem;color:var(--ink-soft);font-weight:600;line-height:1.55}
-  .test-ph{margin-top:34px;padding:48px 20px;text-align:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
-  .test-ph .e{font-size:2.5rem;display:block;margin-bottom:12px}
-  .test-ph p{color:var(--ink-soft);font-weight:600}
-  .cta{margin:40px 0 0;text-align:center}
-  .cta .btn-lg{background:var(--coral);color:#fff;font-size:1rem;padding:14px 28px;box-shadow:0 10px 24px rgba(240,101,90,.3)}
-  footer{margin-top:52px;background:var(--cream-2);padding:38px 18px 26px;text-align:center}
-  .f-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.25rem}
-  .f-tag{color:var(--ink-soft);font-weight:600;margin:4px 0 16px}
-  .f-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  .f-links a{display:inline-flex;align-items:center;gap:7px;background:#fff;font-weight:700;font-size:.88rem;padding:9px 16px;border-radius:999px;box-shadow:0 6px 16px rgba(120,100,70,.08)}
-  .copy{margin-top:18px;font-size:.8rem;color:var(--ink-soft)}
-  @media(max-width:560px){.page-head h1{font-size:1.6rem}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros · Kialo bebé — Tienda de ropa y accesorios para bebés</title>
+  <meta name="description"
+    content="Conoce Kialo bebé: tienda familiar de ropa, accesorios, calzado y disfraces para bebés y niños. Productos seleccionados, atención personalizada por WhatsApp y lives en TikTok." />
+  <link rel="canonical" href="https://kialobebe.com/nosotros/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
+  <meta property="og:title" content="Nosotros · Kialo bebé" />
+  <meta property="og:description"
+    content="Tienda familiar de ropa y accesorios tiernos para tu bebé. Atención al toque por WhatsApp." />
+  <meta property="og:url" content="https://kialobebe.com/nosotros/" />
+  <meta property="og:image" content="https://kialobebe.com/assets/img/brand/hero.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FBF6EC;
+      --cream-2: #F3EADA;
+      --card: #fff;
+      --ink: #3B4756;
+      --ink-soft: #74808F;
+      --line: rgba(150, 130, 100, .16);
+      --coral: #F0655A;
+      --yellow: #F4C040;
+      --green: #6CB94E;
+      --blue: #3E8FD0;
+      --purple: #9B6FC9;
+      --wa: #25D366;
+      --radius: 22px;
+      --shadow: 0 14px 34px rgba(120, 100, 70, .12)
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: "Nunito", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Fredoka", sans-serif;
+      font-weight: 600;
+      line-height: 1.14
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wa-ico {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex: none
+    }
+
+    .promo {
+      background: var(--coral);
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      font-size: .85rem;
+      padding: 8px 14px
+    }
+
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(251, 246, 236, .96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .top-in {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Fredoka", sans-serif;
+      font-weight: 600;
+      font-size: 1.16rem
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-family: "Fredoka", sans-serif;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform .15s ease
+    }
+
+    .btn:active {
+      transform: scale(.97)
+    }
+
+    .btn-wa {
+      background: var(--wa);
+      color: #fff;
+      font-size: .9rem;
+      padding: 9px 16px;
+      box-shadow: 0 8px 18px rgba(37, 211, 102, .3)
+    }
+
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .navbar-in {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none
+    }
+
+    .navbar-in::-webkit-scrollbar {
+      display: none
+    }
+
+    .navbar a {
+      white-space: nowrap;
+      font-family: "Fredoka", sans-serif;
+      font-weight: 500;
+      font-size: .95rem;
+      color: var(--ink-soft);
+      padding: 13px 12px;
+      border-bottom: 3px solid transparent
+    }
+
+    .navbar a:hover,
+    .navbar a.on {
+      color: var(--coral);
+      border-bottom-color: var(--coral)
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 18px
+    }
+
+    .crumb {
+      font-size: .82rem;
+      color: var(--ink-soft);
+      font-weight: 700;
+      padding: 18px 0 4px
+    }
+
+    .crumb a:hover {
+      color: var(--coral)
+    }
+
+    .page-head {
+      text-align: center;
+      margin: 12px 0 6px
+    }
+
+    .page-head h1 {
+      font-size: 2rem
+    }
+
+    .page-head .line {
+      width: 74px;
+      height: 5px;
+      border-radius: 999px;
+      margin: 12px auto 0;
+      background: linear-gradient(90deg, var(--coral), var(--yellow), var(--green), var(--blue), var(--purple))
+    }
+
+    .page-head p {
+      color: var(--ink-soft);
+      font-weight: 600;
+      margin-top: 12px;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .cards {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px
+    }
+
+    .card {
+      flex: 1 1 220px;
+      max-width: 280px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(120, 100, 70, .07)
+    }
+
+    .card .e {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 12px
+    }
+
+    .card b {
+      font-family: "Fredoka", sans-serif;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 8px
+    }
+
+    .card p {
+      font-size: .88rem;
+      color: var(--ink-soft);
+      font-weight: 600;
+      line-height: 1.55
+    }
+
+    .test-ph {
+      margin-top: 34px;
+      padding: 48px 20px;
+      text-align: center;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow)
+    }
+
+    .test-ph .e {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 12px
+    }
+
+    .test-ph p {
+      color: var(--ink-soft);
+      font-weight: 600
+    }
+
+    .cta {
+      margin: 40px 0 0;
+      text-align: center
+    }
+
+    .cta .btn-lg {
+      background: var(--coral);
+      color: #fff;
+      font-size: 1rem;
+      padding: 14px 28px;
+      box-shadow: 0 10px 24px rgba(240, 101, 90, .3)
+    }
+
+    footer {
+      margin-top: 52px;
+      background: var(--cream-2);
+      padding: 38px 18px 26px;
+      text-align: center
+    }
+
+    .f-name {
+      font-family: "Fredoka", sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem
+    }
+
+    .f-tag {
+      color: var(--ink-soft);
+      font-weight: 600;
+      margin: 4px 0 16px
+    }
+
+    .f-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .f-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #fff;
+      font-weight: 700;
+      font-size: .88rem;
+      padding: 9px 16px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(120, 100, 70, .08)
+    }
+
+    .copy {
+      margin-top: 18px;
+      font-size: .8rem;
+      color: var(--ink-soft)
+    }
+
+    @media(max-width:560px) {
+      .page-head h1 {
+        font-size: 1.6rem
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="promo">✨ Envíos a todo el Perú · Atención al toque por WhatsApp 💬</div>
   <div class="top">
     <div class="top-in">
       <a class="brand" href="/"><img src="/assets/img/brand/logo.jpg" alt="Kialo bebé" />Kialo bebé</a>
-      <a class="btn btn-wa" href="https://wa.me/51955105631?text=%C2%A1Hola%20Kialo%20beb%C3%A9!%20%F0%9F%92%9B%20Quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
+      <a class="btn btn-wa"
+        href="https://wa.me/51955105631?text=%C2%A1Hola%20Kialo%20beb%C3%A9!%20%F0%9F%92%9B%20Quiero%20hacer%20una%20consulta"
+        target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24">
+          <path
+            d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>WhatsApp</a>
     </div>
-    <nav class="navbar"><div class="navbar-in">
-      <a href="/productos/">🛍️ Todo</a>
-      <a href="/productos/?cat=novedades">✨ Novedades</a>
-      <a href="/productos/?oferta=1">🏷️ Ofertas</a>
-      <a href="/nosotros/" class="on">Nosotros</a>
-      <a href="/envios/">Envíos</a>
-    </div></nav>
+    <nav class="navbar">
+      <div class="navbar-in">
+        <a href="/productos/">🛍️ Todo</a>
+        <a href="/productos/?cat=novedades">✨ Novedades</a>
+        <a href="/productos/?oferta=1">🏷️ Ofertas</a>
+        <a href="/nosotros/" class="on">Nosotros</a>
+        <a href="/envios/">Envíos</a>
+      </div>
+    </nav>
   </div>
 
   <main class="wrap">
     <nav class="crumb"><a href="/">Inicio</a> › <span>Nosotros</span></nav>
     <div class="page-head">
-      <h1>Quiénes somos 💛</h1><div class="line"></div>
+      <h1>Quiénes somos 💛</h1>
+      <div class="line"></div>
       <p>Somos una tienda familiar dedicada a consentir a los más pequeñitos de la casa.</p>
     </div>
 
     <section class="cards">
-      <div class="card"><span class="e">👶</span><b>Tienda para bebés y niños</b><p>Especializada en ropa, accesorios, zapatillas y disfraces para los más pequeños de la casa.</p></div>
-      <div class="card"><span class="e">✨</span><b>Productos seleccionados</b><p>Elegimos cada producto pensando en la calidad, la ternura y el precio justo para tu bebé.</p></div>
-      <div class="card"><span class="e">💬</span><b>Atención personalizada</b><p>Hablamos contigo directamente por WhatsApp. Resolvemos dudas de tallas, colores y disponibilidad al instante.</p></div>
-      <div class="card"><span class="e">📱</span><b>En vivo por TikTok</b><p>Mostramos nuestros productos en lives de TikTok para que los veas en detalle antes de pedir.</p></div>
+      <div class="card"><span class="e">👶</span><b>Tienda para bebés y niños</b>
+        <p>Especializada en ropa, accesorios, calzado y disfraces para los más pequeños de la casa.</p>
+      </div>
+      <div class="card"><span class="e">✨</span><b>Productos seleccionados</b>
+        <p>Elegimos cada producto pensando en la calidad, la ternura y el precio justo para tu bebé.</p>
+      </div>
+      <div class="card"><span class="e">💬</span><b>Atención personalizada</b>
+        <p>Hablamos contigo directamente por WhatsApp. Resolvemos dudas de tallas, colores y disponibilidad al instante.
+        </p>
+      </div>
+      <div class="card"><span class="e">📱</span><b>En vivo por TikTok</b>
+        <p>Mostramos nuestros productos en lives de TikTok para que los veas en detalle antes de pedir.</p>
+      </div>
     </section>
 
-    <div class="page-head" style="margin-top:52px"><h2>Lo que dicen nuestras mamitas</h2><div class="line"></div></div>
-    <div class="test-ph"><span class="e">💬</span><p>¡Próximamente compartiremos los mensajes de nuestras mamitas! 💛</p></div>
+    <div class="page-head" style="margin-top:52px">
+      <h2>Lo que dicen nuestras mamitas</h2>
+      <div class="line"></div>
+    </div>
+    <div class="test-ph"><span class="e">💬</span>
+      <p>¡Próximamente compartiremos los mensajes de nuestras mamitas! 💛</p>
+    </div>
 
     <div class="cta"><a class="btn btn-lg" href="/productos/">Ver nuestros productos →</a></div>
   </main>
@@ -101,7 +408,11 @@
     <div class="f-name">Kialo bebé</div>
     <p class="f-tag">Ternura para los más pequeñitos 🌈</p>
     <div class="f-links">
-      <a href="https://wa.me/51955105631" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>WhatsApp</a>
+      <a href="https://wa.me/51955105631" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24"
+          style="fill:#25D366">
+          <path
+            d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z" />
+        </svg>WhatsApp</a>
       <a href="https://www.tiktok.com/@kialo.bebe" target="_blank" rel="noopener">🎵 TikTok</a>
       <a href="/envios/">Envíos</a>
       <a href="/">← Inicio</a>
@@ -109,4 +420,5 @@
     <p class="copy">© 2026 Kialo bebé · Hecho con 💛 en Perú</p>
   </footer>
 </body>
+
 </html>

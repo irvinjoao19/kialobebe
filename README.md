@@ -1,6 +1,6 @@
 # Kialo bebé — Catálogo web
 
-Catálogo web de **Kialo bebé**, tienda de ropa, accesorios, zapatillas y disfraces
+Catálogo web de **Kialo bebé**, tienda de ropa, accesorios, calzados y disfraces
 para bebés y niños. Los pedidos se hacen por **WhatsApp**. La tienda también vende
 en vivo por **TikTok**.
 
@@ -70,7 +70,7 @@ kialobebe/
 ```
 
 Reglas:
-- `categoria` debe ser uno de los `id` definidos en `categorias`: `accesorios`, `ropa`, `zapatillas`, `disfraces`.
+- `categoria` debe ser uno de los `id` definidos en `categorias`: `accesorios`, `ropa`, `calzado`, `disfraces`.
 - `antes`: precio anterior si hay oferta; `null` si no hay descuento (no muestra precio tachado).
 - `fotos`: lista de nombres de archivo. La **primera es la portada** (se ve en la tarjeta); las demás aparecen en la galería del modal de detalle. Todas viven en `assets/img/productos/`.
 - `desc`: descripción corta (1 línea, se ve en la tarjeta).
