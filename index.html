@@ -768,7 +768,7 @@
   </footer>
 
   <script>
-    const FEED_MAX = 8;              // cuántos productos en la home
+    const FEED_MAX = 10;             // cuántos productos en la home
     const DIAS_NUEVO = 21;           // "Nuevo" = agregado en los últimos N días
     const esNuevo = p => p.createdAt && (Date.now() - new Date(p.createdAt).getTime()) < DIAS_NUEVO * 864e5;
     const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
