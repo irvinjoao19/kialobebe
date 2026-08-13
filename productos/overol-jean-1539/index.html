@@ -135,6 +135,7 @@
     // Color elegido → se agrega al mensaje de WhatsApp (CODIGO-COLOR)
     var buy = document.getElementById('pBuy');
     var WA = "https://wa.me/51955105631?text=";
+    window.KIALO_WA = "51955105631";   // para el carrito (assets/cart.js)
     var NOMBRE = "overol jean para niño color azul", CODIGO = "OVEROL-JEAN--1539", PRECIO = "45", URL_PROD = "https://kialobebe.com/productos/overol-jean-1539/", AGOTADO = true;
     function up(s){ return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,''); }
     document.querySelectorAll('.sw').forEach(function(b){
@@ -154,5 +155,6 @@
       });
     });
   </script>
+  <script src="/assets/cart.js" defer></script>
 </body>
 </html>

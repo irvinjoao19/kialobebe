@@ -221,7 +221,9 @@ function paginaProducto(p, tienda, categorias) {
         <p class="p-detalle">${esc(p.detalle || p.desc || '')}</p>
         ${specs ? `<div class="p-specs">${specs}</div>` : ''}
         ${colores}
-        <a id="pBuy" class="btn p-buy${agotado ? ' consultar' : ''}" target="_blank" rel="noopener" href="${wa(tienda.whatsapp)}${agotado ? consultaMsg(null) : pedidoMsg(null)}">${WA_SVG}${agotado ? 'Consultar cuándo llega' : 'Pedir por WhatsApp'}</a>
+        ${agotado
+          ? `<a id="pBuy" class="btn p-buy consultar" target="_blank" rel="noopener" href="${wa(tienda.whatsapp)}${consultaMsg(null)}">${WA_SVG}Consultar cuándo llega</a>`
+          : `<div class="p-actions"><a id="pBuy" class="btn p-buy" target="_blank" rel="noopener" href="${wa(tienda.whatsapp)}${pedidoMsg(null)}">${WA_SVG}Pedir por WhatsApp</a><button class="k-cartbtn js-add-cart" aria-label="Agregar al carrito" title="Agregar al carrito" data-codigo="${esc(p.codigo || '')}" data-nombre="${esc(p.nombre)}" data-precio="${p.precio}" data-foto="${esc(fotos[0] || '')}"></button></div>`}
         <a class="p-back" href="/productos/">← Seguir viendo el catálogo</a>
       </div>
     </div>
@@ -245,6 +247,7 @@ function paginaProducto(p, tienda, categorias) {
     // Color elegido → se agrega al mensaje de WhatsApp (CODIGO-COLOR)
     var buy = document.getElementById('pBuy');
     var WA = ${JSON.stringify(wa(tienda.whatsapp))};
+    window.KIALO_WA = ${JSON.stringify(tienda.whatsapp)};   // para el carrito (assets/cart.js)
     var NOMBRE = ${JSON.stringify(p.nombre)}, CODIGO = ${JSON.stringify(p.codigo || '')}, PRECIO = ${JSON.stringify(String(p.precio))}, URL_PROD = ${JSON.stringify(url)}, AGOTADO = ${agotado};
     function up(s){ return String(s).normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,''); }
     document.querySelectorAll('.sw').forEach(function(b){
@@ -264,6 +267,7 @@ function paginaProducto(p, tienda, categorias) {
       });
     });
   </script>
+  <script src="/assets/cart.js" defer></script>
 </body>
 </html>`;
 }

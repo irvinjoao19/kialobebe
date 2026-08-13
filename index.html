@@ -806,6 +806,7 @@
 
     function init(DATA) {
       const num = DATA.tienda.whatsapp;
+      window.KIALO_WA = num;   // para el carrito (assets/cart.js)
       document.querySelectorAll('[data-wa]').forEach(a => a.href = wa(num, a.dataset.wa));
       document.querySelectorAll('[data-tiktok]').forEach(a => a.href = DATA.tienda.tiktok || '#');
 
@@ -830,6 +831,8 @@
       const boton = agotado
         ? `<a class="p-buy consultar" target="_blank" rel="noopener" href="${wa(num, consultaMsg(p))}">${WA_SVG}Consultar cuándo llega</a>`
         : `<a class="p-buy" target="_blank" rel="noopener" href="${wa(num, pedidoMsg(p))}">${WA_SVG}Pedir por WhatsApp</a>`;
+      const cartBtn = `<button class="k-cartbtn js-add-cart" aria-label="Agregar al carrito" title="Agregar al carrito" data-codigo="${esc(p.codigo)}" data-nombre="${esc(p.nombre)}" data-precio="${p.precio}" data-foto="${esc(portada)}"></button>`;
+      const acciones = agotado ? boton : `<div class="p-actions">${boton}${cartBtn}</div>`;
       const el = document.createElement('article');
       el.className = 'product';
       el.innerHTML = `
@@ -838,11 +841,12 @@
           <a class="p-name" href="${prodUrl(p)}">${esc(p.nombre)}</a>
           ${dots}
           <div class="p-price"><span class="p-now">S/ ${p.precio}</span>${old}</div>
-          ${boton}
+          ${acciones}
         </div>`;
       return el;
     }
   </script>
+  <script src="/assets/cart.js" defer></script>
 </body>
 
 </html>
