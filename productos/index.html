@@ -263,6 +263,29 @@
     const DIAS_NUEVO = 21; // "Nuevo" = agregado en los últimos N días
     const esNuevo = p => p.createdAt && (Date.now() - new Date(p.createdAt).getTime()) < DIAS_NUEVO * 864e5;
     const prodUrl = p => `/productos/${slugify(p.codigo)}/`;
+
+    // ── Buscador "general": junta TODOS los campos del producto en un solo texto ──
+    // Mapa inverso hex -> nombres de color (para poder buscar "rosa", "azul", etc.).
+    const COLOR_NOMBRES = Object.entries(COLOR_MAP).reduce((m, [nom, hex]) => {
+      const h = hex.toLowerCase(); (m[h] = m[h] || []).push(nom); return m;
+    }, {});
+    const catNombre = id => (DATA?.categorias?.find(c => c.id === id) || {}).nombre || id;
+    // Números escritos en palabra -> dígito, para que "dos años" encuentre "2-3 años".
+    const NUM_WORDS = {
+      cero:'0', un:'1', uno:'1', una:'1', dos:'2', tres:'3', cuatro:'4', cinco:'5',
+      seis:'6', siete:'7', ocho:'8', nueve:'9', diez:'10', once:'11', doce:'12',
+      trece:'13', catorce:'14', quince:'15', dieciseis:'16', diecisiete:'17',
+      dieciocho:'18', diecinueve:'19', veinte:'20', veintiuno:'21', veintidos:'22',
+      veintitres:'23', veinticuatro:'24',
+    };
+    // Texto normalizado donde busca el buscador (nombre, código, desc, detalle,
+    // género, material, categoría, tallas y nombres de color).
+    const buscables = p => norm([
+      p.codigo, p.nombre, p.desc, p.detalle, p.genero, p.material,
+      catNombre(p.categoria),
+      tallasDe(p).join(' '),
+      (p.colores || []).flatMap(c => COLOR_NOMBRES[hexDe(c)] || []).join(' '),
+    ].filter(Boolean).join(' '));
     const tallasDe = p => (Array.isArray(p.tallas) && p.tallas.length) ? p.tallas : (p.talla ? [p.talla] : []);
     const pedidoMsg = p => {
       const cod = p.codigo ? `*${p.codigo}* — ` : '';
@@ -391,8 +414,13 @@
       if (F.pMax != null) items = items.filter(p => p.precio <= F.pMax);
       if (F.nuevo) items = items.filter(p => esNuevo(p));
       if (F.oferta) items = items.filter(p => p.antes && p.antes > p.precio);
-      const q = norm(F.q);
-      if (q) items = items.filter(p => norm(p.codigo||'').includes(q) || norm(p.nombre||'').includes(q) || norm(p.desc||'').includes(q));
+      const q = norm(F.q).trim();
+      if (q) {
+        // Cada palabra debe aparecer en ALGÚN campo (búsqueda general por términos).
+        // Ej: "niño 2 años" -> género "Niño" + talla "2 años" hacen match.
+        const terms = q.split(/\s+/).filter(Boolean).map(t => NUM_WORDS[t] || t);
+        items = items.filter(p => { const h = buscables(p); return terms.every(t => h.includes(t)); });
+      }
       // orden
       if (F.sort === 'precio-asc') items.sort((a,b) => a.precio - b.precio);
       else if (F.sort === 'precio-desc') items.sort((a,b) => b.precio - a.precio);
